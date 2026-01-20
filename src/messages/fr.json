@@ -2,5 +2,38 @@
   "Home": {
     "headline": "Automatisez vos opérations Juridiques, RH & Comptables avec des Agents IA souverains — auditables et sous contrôle humain.",
     "subline": "Test i18n OK — URL locale active."
+  },
+  "Navbar": {
+    "bookCall": "Réserver un appel"
+  },
+  "Landing": {
+    "hero": {
+      "badge": "Priorité UE • Prêt pour l’audit • Humain dans la boucle",
+      "title": "Agents IA souverains pour le Juridique, les RH et la Finance — conçus pour automatiser, vérifier et documenter chaque action.",
+      "subtitle": "Nous ne vendons pas des workflows puis disparaissons. Nous concevons, déployons et supportons des automatisations certifiées, avec un accompagnement continu.",
+      "primaryCta": "Réserver un appel",
+      "secondaryCta": "Voir nos 3 solutions phares"
+    },
+    "solutions": {
+      "title": "Nos solutions phares",
+      "subtitle": "Un point de départ simple et à fort impact — puis on étend avec vos processus réels.",
+      "cards": {
+        "indexing": {
+          "title": "Indexation intelligente",
+          "body": "Classer automatiquement, renommer et acheminer des documents (contrats, factures, pièces) avec traçabilité."
+        },
+        "drafting": {
+          "title": "Agent de rédaction sécurisé",
+          "body": "Rédige des documents conformes avec étapes de validation et journal d’audit (approbation humaine requise)."
+        },
+        "timetracker": {
+          "title": "Suivi du temps par IA",
+          "body": "Capte automatiquement le travail facturable et génère un reporting fiable, sans friction."
+        }
+      }
+    },
+    "book": {
+      "placeholder": "Zone “réserver un appel” (on branchera Calendly/Meet dans le chapitre Conversion)."
+    }
   }
 }

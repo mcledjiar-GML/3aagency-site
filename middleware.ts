@@ -7,17 +7,15 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // IMPORTANT : "/" est géré par src/app/page.tsx (ton redirect basé sur headers)
+  // "/" est géré par src/app/page.tsx
   if (pathname === "/") {
     return NextResponse.next();
   }
 
-  // Pour toutes les routes non-statiques, next-intl fait le job
   return intlMiddleware(request);
 }
 
 export const config = {
-  // IMPORTANT : on EXCLUT tous les fichiers statiques (.*\\..*)
-  // Donc /brand/logo.svg n'est JAMAIS intercepté par le middleware
+  // Exclut les fichiers statiques (.svg, .png, .ico, etc.)
   matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

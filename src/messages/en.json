@@ -2,5 +2,38 @@
   "Home": {
     "headline": "Automate Legal, HR and Finance operations with sovereign AI agents — auditable and human-controlled.",
     "subline": "Test i18n OK — URL locale active."
+  },
+  "Navbar": {
+    "bookCall": "Book a call"
+  },
+  "Landing": {
+    "hero": {
+      "badge": "EU-first • Audit-ready • Human-in-the-loop",
+      "title": "Sovereign AI agents for Legal, HR and Finance — built to automate, verify and document every action.",
+      "subtitle": "We don’t sell workflows and disappear. We design, deploy and support certified automations with continuous accompaniment.",
+      "primaryCta": "Book a call",
+      "secondaryCta": "See our 3 flagship solutions"
+    },
+    "solutions": {
+      "title": "Our flagship solutions",
+      "subtitle": "A simple, high-impact starting point — then we expand with your real processes.",
+      "cards": {
+        "indexing": {
+          "title": "Intelligent indexing",
+          "body": "Auto-classify, rename and route documents (contracts, invoices, evidence) with traceability."
+        },
+        "drafting": {
+          "title": "Secure drafting agent",
+          "body": "Drafts compliant documents with validation steps and an audit log (human approval required)."
+        },
+        "timetracker": {
+          "title": "AI Time-Tracker",
+          "body": "Capture billable work automatically and generate reliable reporting with minimal friction."
+        }
+      }
+    },
+    "book": {
+      "placeholder": "Book section placeholder (we’ll connect Calendly/Meet in the Conversion chapter)."
+    }
   }
 }

@@ -16,8 +16,8 @@ async function loadMessages(locale: Locale) {
 export default getRequestConfig(async ({requestLocale}) => {
   const requested = await requestLocale;
 
-  const candidate = typeof requested === "string" ? requested : "";
-  const locale: Locale = isLocale(candidate) ? candidate : routing.defaultLocale;
+  const locale: Locale =
+    requested && isLocale(requested) ? requested : routing.defaultLocale;
 
   return {
     locale,

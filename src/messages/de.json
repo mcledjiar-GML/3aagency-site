@@ -2,5 +2,38 @@
   "Home": {
     "headline": "Automatisieren Sie juristische, HR- und Finanzprozesse mit souveränen KI-Agents — auditierbar und mit menschlicher Kontrolle.",
     "subline": "Test i18n OK — URL locale active."
+  },
+  "Navbar": {
+    "bookCall": "Termin buchen"
+  },
+  "Landing": {
+    "hero": {
+      "badge": "EU-first • Audit-ready • Mensch in der Schleife",
+      "title": "Souveräne KI-Agents für Recht, HR und Finanzen — entwickelt, um jede Aktion zu automatisieren, zu prüfen und zu dokumentieren.",
+      "subtitle": "Wir verkaufen keine Workflows und verschwinden. Wir entwickeln, implementieren und betreuen zertifizierte Automatisierungen – mit kontinuierlicher Begleitung.",
+      "primaryCta": "Termin buchen",
+      "secondaryCta": "Unsere 3 Kernlösungen ansehen"
+    },
+    "solutions": {
+      "title": "Unsere Kernlösungen",
+      "subtitle": "Ein einfacher, wirkungsvoller Einstieg – danach erweitern wir mit Ihren realen Prozessen.",
+      "cards": {
+        "indexing": {
+          "title": "Intelligente Indexierung",
+          "body": "Dokumente automatisch klassifizieren, umbenennen und weiterleiten (Verträge, Rechnungen, Nachweise) – mit Nachvollziehbarkeit."
+        },
+        "drafting": {
+          "title": "Sicherer Drafting-Agent",
+          "body": "Erstellt regelkonforme Dokumente mit Validierungsschritten und Audit-Log (menschliche Freigabe erforderlich)."
+        },
+        "timetracker": {
+          "title": "KI-Zeiterfassung",
+          "body": "Erfasst abrechenbare Arbeit automatisch und liefert verlässliche Reports – mit minimalem Aufwand."
+        }
+      }
+    },
+    "book": {
+      "placeholder": "Platzhalter „Termin buchen“ (Calendly/Meet verbinden wir im Conversion-Kapitel)."
+    }
   }
 }
