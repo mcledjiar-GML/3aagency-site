@@ -8,8 +8,9 @@ import Footer from "../../components/layout/Footer";
 
 function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
-  const fromVercel =
-    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null;
+  const fromVercel = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : null;
 
   const raw = (fromEnv || fromVercel || "http://localhost:3000").trim();
   return raw.endsWith("/") ? raw.slice(0, -1) : raw;
@@ -71,10 +72,14 @@ export default async function LocaleLayout({
   const messages = await loadMessages(locale);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <Navbar />
-      {children}
-      <Footer />
-    </NextIntlClientProvider>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
