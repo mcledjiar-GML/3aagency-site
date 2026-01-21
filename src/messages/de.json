@@ -1,39 +1,108 @@
 {
-  "Home": {
-    "headline": "Automatisieren Sie juristische, HR- und Finanzprozesse mit souveränen KI-Agents — auditierbar und mit menschlicher Kontrolle.",
-    "subline": "Test i18n OK — URL locale active."
-  },
-  "Navbar": {
-    "bookCall": "Termin buchen"
+  "Nav": {
+    "cta": "Termin buchen"
   },
   "Landing": {
     "hero": {
-      "badge": "EU-first • Audit-ready • Mensch in der Schleife",
-      "title": "Souveräne KI-Agents für Recht, HR und Finanzen — entwickelt, um jede Aktion zu automatisieren, zu prüfen und zu dokumentieren.",
-      "subtitle": "Wir verkaufen keine Workflows und verschwinden. Wir entwickeln, implementieren und betreuen zertifizierte Automatisierungen – mit kontinuierlicher Begleitung.",
-      "primaryCta": "Termin buchen",
-      "secondaryCta": "Unsere 3 Kernlösungen ansehen"
-    },
-    "solutions": {
-      "title": "Unsere Kernlösungen",
-      "subtitle": "Ein einfacher, wirkungsvoller Einstieg – danach erweitern wir mit Ihren realen Prozessen.",
-      "cards": {
-        "indexing": {
-          "title": "Intelligente Indexierung",
-          "body": "Dokumente automatisch klassifizieren, umbenennen und weiterleiten (Verträge, Rechnungen, Nachweise) – mit Nachvollziehbarkeit."
-        },
-        "drafting": {
-          "title": "Sicherer Drafting-Agent",
-          "body": "Erstellt regelkonforme Dokumente mit Validierungsschritten und Audit-Log (menschliche Freigabe erforderlich)."
-        },
-        "timetracker": {
-          "title": "KI-Zeiterfassung",
-          "body": "Erfasst abrechenbare Arbeit automatisch und liefert verlässliche Reports – mit minimalem Aufwand."
-        }
+      "badge": "Nur EU • Audit-Log • Human-in-the-loop",
+      "title": "Souveräne KI-Agents für Recht, HR und Finance — automatisieren, ohne Kontrolle zu verlieren.",
+      "subtitle": "Wir verkaufen keine Workflows und sind dann weg. Wir konzipieren, deployen und begleiten Ihre Automationen (n8n + privates RAG + Agents) transparent: keine versteckten Kosten, alles dokumentiert.",
+      "secondaryCta": "Kernlösungen ansehen",
+      "promises": {
+        "p1Title": "Kontinuierliche Begleitung",
+        "p1Body": "Deployment + Iterationen + Support: wir optimieren gemeinsam an echten Fällen.",
+        "p2Title": "Keine Überraschungen",
+        "p2Body": "Alles ist klar (Setup, Monatlich, Verbrauch). Keine „hidden fees“.",
+        "p3Title": "Kontrolle & Nachvollziehbarkeit",
+        "p3Body": "Freigabeschritte + Audit-Log: Sie behalten die Kontrolle."
       }
     },
-    "book": {
-      "placeholder": "Platzhalter „Termin buchen“ (Calendly/Meet verbinden wir im Conversion-Kapitel)."
+    "trust": {
+      "title": "Der Vertrauens‑Dreiklang",
+      "subtitle": "Engineering, juristische Validierung und Praxistests.",
+      "card1Title": "Engineering mit Präzision",
+      "card1Body": "„Zero‑Error“-Kultur aus Industrie & Aviation: robust, zuverlässig, sauber umgesetzt.",
+      "card2Title": "Juristische Validierung",
+      "card2Body": "Workflows mit juristischem Input, kompatibel mit europäischem Rahmen.",
+      "card3Title": "Praxistest",
+      "card3Body": "Proof of Concept im echten Betrieb: Feintuning vor Skalierung."
+    },
+    "solutions": {
+      "title": "Unsere „Star“-Lösungen",
+      "subtitle": "Der beste Einstieg: schnell, profitabel, und leicht erweiterbar.",
+      "s1Title": "Intelligente Indexierung",
+      "s1Body": "Dokumente automatisch sortieren/umbenennen (Verträge, Rechnungen) + Routing + Traceability.",
+      "s2Title": "Sicherer Drafting‑Agent",
+      "s2Body": "Dokument- und Aktenerstellung mit Freigabeschritten und Audit‑Log (menschliche Freigabe erforderlich).",
+      "s3Title": "KI Time‑Tracker",
+      "s3Body": "Erfasst „unsichtbare“ abrechenbare Arbeit und liefert verlässliches Reporting.",
+      "noteTitle": "Wichtig",
+      "noteBody": "Unsere Agents sind Human‑in‑the‑loop: KI unterstützt, Ihr Team validiert. Fokus auf Compliance und Zuverlässigkeit."
+    },
+    "usecases": {
+      "title": "Use Cases mit schnellem ROI",
+      "subtitle": "Mehr als 3 Flows sind möglich. Hier sind die rentabelsten für Ihre Zielabteilungen.",
+      "u1Title": "Mahnung & Inkasso",
+      "u1Body": "E‑Mails + Follow-up + CRM, inkl. Belegen und Eskalationslogik.",
+      "u2Title": "Dokumenten‑Analyse",
+      "u2Body": "Verträge, Rechnungen, Belege: Extraktion, Zusammenfassung, semantische Suche (privates RAG).",
+      "u3Title": "Juristische Fall‑Vorbereitung",
+      "u3Body": "Sortieren, Zusammenfassen, Compliance‑Check, Checklisten und Aktionen.",
+      "u4Title": "HR Onboarding",
+      "u4Body": "Dokumente, Checklisten, automatische Erinnerungen und Prozess‑Nachweis.",
+      "u5Title": "Reporting & KPI",
+      "u5Body": "Zeit, Kosten, Compliance: Dashboards und verwertbare Reports.",
+      "u6Title": "Integrationen",
+      "u6Body": "ERP / CRM / Outlook / Drive / API: Bestehendes anbinden statt neu bauen."
+    },
+    "security": {
+      "title": "Sicherheit & Souveränität",
+      "subtitle": "Was wir garantieren (und dokumentieren) können: EU-first, Vertraulichkeit, Audit.",
+      "s1Title": "Daten in der EU (oder On‑Prem)",
+      "s1Body": "Verarbeitung/Storage in der EU (z.B. Hetzner DE) oder On‑Prem Deployment auf Wunsch.",
+      "s2Title": "Nie zum Training",
+      "s2Body": "Kundendaten werden niemals zum Training öffentlicher Modelle verwendet.",
+      "s3Title": "Verschlüsselung",
+      "s3Body": "Verschlüsselung in Transit (TLS) und at Rest (verschlüsselte Volumes) auf unseren Deployments.",
+      "auditTitle": "Audit‑Log für Kunden",
+      "auditBody": "Audit Log verfügbar: Aktionen, Schritte, Freigaben, Spuren — hilfreich für Compliance und internes Controlling."
+    },
+    "process": {
+      "title": "„3A Certified“-Prozess",
+      "subtitle": "4 Schritte: robust, getestet, ergebnisorientiert.",
+      "p1Title": "1) High‑Precision Design",
+      "p1Body": "Architektur durch unsere Ingenieure für Stabilität und Robustheit.",
+      "p2Title": "2) Juristischer Check",
+      "p2Body": "Vorab‑Validierung und EU‑Rahmenbedingungen berücksichtigen.",
+      "p3Title": "3) Beta‑Test im Betrieb",
+      "p3Body": "Proof of Concept und Anpassung mit echten Nutzer‑Feedbacks.",
+      "p4Title": "4) Deployment & Begleitung",
+      "p4Body": "Go‑Live + kontinuierliche Verbesserung: wir bleiben an Ihrer Seite."
+    },
+    "founders": {
+      "title": "Das Gründer‑Duo",
+      "subtitle": "Seltene Kombination: industrielle Umsetzung + wissenschaftliche Strenge.",
+      "f1Title": "Mohamed Ledjiar — CEO",
+      "f1Body": "Elektrotechnik/Automation, Management‑Expertise. 30 Jahre Industrie & Aviation („Zero‑Error“-Kultur).",
+      "f2Title": "Amine Chabane — CTO",
+      "f2Body": "PhD Physik (Uni Frankfurt) & Quantum Computing. Experte für komplexe Systeme und Advanced Engineering."
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Kurz beantwortet, bevor Sie buchen.",
+      "q1Title": "Verlassen meine Daten die EU?",
+      "q1Body": "Nein. EU-first (DE/FR) oder On‑Prem auf Wunsch.",
+      "q2Title": "Gibt es versteckte Kosten?",
+      "q2Body": "Nein. Setup, Monatlich und (falls relevant) Verbrauch sind klar definiert.",
+      "q3Title": "Was ist mit KI‑Halluzinationen?",
+      "q3Body": "Freigabeschritte (Human‑in‑the‑loop) + Audit‑Log. KI assistiert, Menschen entscheiden.",
+      "q4Title": "Integriert ihr CRM/ERP/Outlook/Drive?",
+      "q4Body": "Ja. Wir binden bestehende Systeme über Integrationen/APIs an."
+    },
+    "finalCta": {
+      "title": "Erster zertifizierter Agent in 30 Tagen",
+      "subtitle": "Buchen Sie einen Termin und wir identifizieren 1–2 Workflows mit dem schnellsten ROI.",
+      "note": "Ziel: messbar, dokumentiert, nutzbar — mit kontinuierlicher Begleitung."
     }
   }
 }

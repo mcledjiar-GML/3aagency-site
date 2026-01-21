@@ -1,39 +1,108 @@
 {
-  "Home": {
-    "headline": "Automatisez vos opérations Juridiques, RH & Comptables avec des Agents IA souverains — auditables et sous contrôle humain.",
-    "subline": "Test i18n OK — URL locale active."
-  },
-  "Navbar": {
-    "bookCall": "Réserver un appel"
+  "Nav": {
+    "cta": "Réserver un appel"
   },
   "Landing": {
     "hero": {
       "badge": "Priorité UE • Prêt pour l’audit • Humain dans la boucle",
-      "title": "Agents IA souverains pour le Juridique, les RH et la Finance — conçus pour automatiser, vérifier et documenter chaque action.",
-      "subtitle": "Nous ne vendons pas des workflows puis disparaissons. Nous concevons, déployons et supportons des automatisations certifiées, avec un accompagnement continu.",
-      "primaryCta": "Réserver un appel",
-      "secondaryCta": "Voir nos 3 solutions phares"
+      "title": "Agents IA souverains pour le Juridique, les RH et la Finance — automatisez sans perdre le contrôle.",
+      "subtitle": "Nous ne vendons pas des workflows puis disparaissons. Nous concevons, déployons et accompagnons en continu vos automatisations (n8n + RAG privé + agents) en toute transparence : pas de frais cachés, tout est documenté.",
+      "secondaryCta": "Voir les solutions phares",
+      "promises": {
+        "p1Title": "Accompagnement continu",
+        "p1Body": "Déploiement + itérations + support : on améliore avec vous sur des cas réels.",
+        "p2Title": "Aucune surprise",
+        "p2Body": "Tout est explicite (setup, mensuel, consommation). Aucun frais caché.",
+        "p3Title": "Contrôle & traçabilité",
+        "p3Body": "Étapes de validation + journal d’audit : vous gardez la main."
+      }
+    },
+    "trust": {
+      "title": "Des preuves auxquelles vous pouvez faire confiance",
+      "subtitle": "Un trio de confiance : rigueur d’ingénierie, validation juridique, tests terrain.",
+      "card1Title": "Ingénierie de haute précision",
+      "card1Body": "Culture « zéro erreur » issue de l’industrie & de l’aviation : exécution robuste et fiabilité.",
+      "card2Title": "Validation juridique",
+      "card2Body": "Workflows conçus avec les contraintes juridiques en tête, alignés sur les standards UE.",
+      "card3Title": "Testé sur le terrain",
+      "card3Body": "Proof of concept en conditions réelles : on affine avec du feedback avant de scaler."
     },
     "solutions": {
       "title": "Nos solutions phares",
-      "subtitle": "Un point de départ simple et à fort impact — puis on étend avec vos processus réels.",
-      "cards": {
-        "indexing": {
-          "title": "Indexation intelligente",
-          "body": "Classer automatiquement, renommer et acheminer des documents (contrats, factures, pièces) avec traçabilité."
-        },
-        "drafting": {
-          "title": "Agent de rédaction sécurisé",
-          "body": "Rédige des documents conformes avec étapes de validation et journal d’audit (approbation humaine requise)."
-        },
-        "timetracker": {
-          "title": "Suivi du temps par IA",
-          "body": "Capte automatiquement le travail facturable et génère un reporting fiable, sans friction."
-        }
-      }
+      "subtitle": "Meilleur point de départ : rapide à déployer, ROI élevé, et extensible.",
+      "s1Title": "Indexation intelligente",
+      "s1Body": "Classer et renommer automatiquement les documents (contrats, factures, dossiers) + routage + traçabilité.",
+      "s2Title": "Agent de rédaction sécurisé",
+      "s2Body": "Générer des documents conformes avec étapes de validation et journal d’audit (approbation humaine requise).",
+      "s3Title": "Time‑Tracker IA",
+      "s3Body": "Capturer le travail facturable « invisible » et produire un reporting fiable.",
+      "noteTitle": "Important",
+      "noteBody": "Nos agents sont human‑in‑the‑loop : l’IA assiste, votre équipe valide. Fiabilité et conformité d’abord."
     },
-    "book": {
-      "placeholder": "Zone “réserver un appel” (on branchera Calendly/Meet dans le chapitre Conversion)."
+    "usecases": {
+      "title": "Cas d’usage à fort ROI",
+      "subtitle": "On peut automatiser bien plus que 3 flows. Voici les plus rentables pour vos équipes.",
+      "u1Title": "Relances & recouvrement",
+      "u1Body": "Emails + relances + CRM, avec scénarios et preuves de contact.",
+      "u2Title": "Analyse de documents",
+      "u2Body": "Contrats, factures, preuves : extraction, résumés, recherche sémantique (RAG privé).",
+      "u3Title": "Préparation de dossiers juridiques",
+      "u3Body": "Tri, synthèse, contrôles conformité, checklists et actions.",
+      "u4Title": "Onboarding RH",
+      "u4Body": "Documents, checklists, rappels et traçabilité des étapes.",
+      "u5Title": "Reporting & KPIs",
+      "u5Body": "Temps, coûts, conformité : dashboards et rapports exploitables.",
+      "u6Title": "Intégrations",
+      "u6Body": "ERP / CRM / Outlook / Drive / API : connecter ce que vous utilisez déjà."
+    },
+    "security": {
+      "title": "Sécurité & souveraineté",
+      "subtitle": "Ce que nous pouvons garantir (et documenter) : priorité UE, confidentialité, auditabilité.",
+      "s1Title": "Données UE (ou on‑prem)",
+      "s1Body": "Traitement et stockage en UE (ex. Hetzner Allemagne) ou déploiement on‑prem si nécessaire.",
+      "s2Title": "Jamais utilisées pour l’entraînement",
+      "s2Body": "Les données clients ne sont jamais utilisées pour entraîner des modèles publics.",
+      "s3Title": "Chiffrement",
+      "s3Body": "Chiffrement en transit (TLS) et au repos (volumes chiffrés) sur nos déploiements.",
+      "auditTitle": "Journal d’audit client",
+      "auditBody": "Audit log disponible : actions, étapes, validations — utile pour la conformité et le contrôle interne."
+    },
+    "process": {
+      "title": "Le process “3A Certified”",
+      "subtitle": "4 étapes : robuste, testé, orienté résultats.",
+      "p1Title": "1) Design haute précision",
+      "p1Body": "Architecture conçue par nos ingénieurs pour la stabilité et la robustesse.",
+      "p2Title": "2) Check & validation juridique",
+      "p2Body": "Pré‑validation en intégrant les contraintes et exigences UE.",
+      "p3Title": "3) Beta test terrain",
+      "p3Body": "Proof of Concept et affinement avec retours d’équipe en conditions réelles.",
+      "p4Title": "4) Déploiement & support continu",
+      "p4Body": "Go‑live + amélioration continue : on ne disparaît pas après livraison."
+    },
+    "founders": {
+      "title": "Le duo fondateur",
+      "subtitle": "Un mix rare : exécution industrielle + rigueur scientifique.",
+      "f1Title": "Mohamed Ledjiar — CEO",
+      "f1Body": "Électrotechnique/automation, expertise management. 30 ans en industrie & aviation (culture « zéro erreur »).",
+      "f2Title": "Amine Chabane — CTO",
+      "f2Body": "Doctorat en physique (Uni Frankfurt) & informatique quantique. Spécialiste des systèmes complexes et de l’ingénierie avancée."
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Réponses rapides avant de réserver.",
+      "q1Title": "Mes données sortent‑elles de l’UE ?",
+      "q1Body": "Non. Priorité UE (DE/FR) ou on‑prem si requis.",
+      "q2Title": "Des frais cachés ?",
+      "q2Body": "Non. Setup, mensuel et (si pertinent) consommation sont explicites.",
+      "q3Title": "Et les hallucinations IA ?",
+      "q3Body": "Étapes de validation (human‑in‑the‑loop) + journal d’audit. L’IA assiste, les humains décident.",
+      "q4Title": "Pouvez‑vous intégrer nos outils ?",
+      "q4Body": "Oui. Connexion de votre stack via intégrations / APIs."
+    },
+    "finalCta": {
+      "title": "Votre premier agent certifié en 30 jours",
+      "subtitle": "Réservez un appel et nous identifierons 1–2 workflows au ROI le plus rapide.",
+      "note": "Objectif : résultats mesurables et documentés — avec accompagnement continu."
     }
   }
 }

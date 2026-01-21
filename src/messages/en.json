@@ -1,39 +1,108 @@
 {
-  "Home": {
-    "headline": "Automate Legal, HR and Finance operations with sovereign AI agents — auditable and human-controlled.",
-    "subline": "Test i18n OK — URL locale active."
-  },
-  "Navbar": {
-    "bookCall": "Book a call"
+  "Nav": {
+    "cta": "Book a call"
   },
   "Landing": {
     "hero": {
-      "badge": "EU-first • Audit-ready • Human-in-the-loop",
-      "title": "Sovereign AI agents for Legal, HR and Finance — built to automate, verify and document every action.",
-      "subtitle": "We don’t sell workflows and disappear. We design, deploy and support certified automations with continuous accompaniment.",
-      "primaryCta": "Book a call",
-      "secondaryCta": "See our 3 flagship solutions"
+      "badge": "EU-first • Audit log • Human-in-the-loop",
+      "title": "Sovereign AI agents for Legal, HR and Finance — automate without losing control.",
+      "subtitle": "We don’t sell workflows and disappear. We design, deploy and continuously support your automations (n8n + private RAG + agents) with full transparency: no hidden fees, everything documented.",
+      "secondaryCta": "See flagship solutions",
+      "promises": {
+        "p1Title": "Continuous accompaniment",
+        "p1Body": "Deployment + iterations + support: we improve with you on real cases.",
+        "p2Title": "No surprises",
+        "p2Body": "Everything is explicit (setup, monthly, consumption). No hidden fees.",
+        "p3Title": "Control & traceability",
+        "p3Body": "Approval steps + audit log: you stay in control."
+      }
+    },
+    "trust": {
+      "title": "Proof you can trust",
+      "subtitle": "A trust trio: engineering rigor, legal validation, real‑world testing.",
+      "card1Title": "High‑precision engineering",
+      "card1Body": "“Zero‑error” culture from industry & aviation: robust execution and reliability.",
+      "card2Title": "Legal validation",
+      "card2Body": "Workflows designed with legal constraints in mind, aligned with EU standards.",
+      "card3Title": "Field‑tested",
+      "card3Body": "Proof of concept in real conditions: refine with feedback before scaling."
     },
     "solutions": {
       "title": "Our flagship solutions",
-      "subtitle": "A simple, high-impact starting point — then we expand with your real processes.",
-      "cards": {
-        "indexing": {
-          "title": "Intelligent indexing",
-          "body": "Auto-classify, rename and route documents (contracts, invoices, evidence) with traceability."
-        },
-        "drafting": {
-          "title": "Secure drafting agent",
-          "body": "Drafts compliant documents with validation steps and an audit log (human approval required)."
-        },
-        "timetracker": {
-          "title": "AI Time-Tracker",
-          "body": "Capture billable work automatically and generate reliable reporting with minimal friction."
-        }
-      }
+      "subtitle": "Best starting point: fast to deploy, high ROI, and expandable.",
+      "s1Title": "Intelligent indexing",
+      "s1Body": "Auto-sort and rename documents (contracts, invoices, files) + routing + traceability.",
+      "s2Title": "Secure drafting agent",
+      "s2Body": "Generate compliant documents with approval steps and audit log (human approval required).",
+      "s3Title": "AI Time‑Tracker",
+      "s3Body": "Capture “invisible” billable work and produce reliable reporting.",
+      "noteTitle": "Important",
+      "noteBody": "Our agents are human‑in‑the‑loop: AI assists, your team validates. Reliability and compliance first."
     },
-    "book": {
-      "placeholder": "Book section placeholder (we’ll connect Calendly/Meet in the Conversion chapter)."
+    "usecases": {
+      "title": "High‑ROI use cases",
+      "subtitle": "We can automate more than 3 flows. Here are the most profitable across your target departments.",
+      "u1Title": "Follow‑ups & collection",
+      "u1Body": "Emails + follow‑up + CRM, with scenarios and proof of outreach.",
+      "u2Title": "Document analysis",
+      "u2Body": "Contracts, invoices, evidence: extraction, summaries, semantic search (private RAG).",
+      "u3Title": "Legal file preparation",
+      "u3Body": "Sorting, synthesis, compliance checks, checklists and actions.",
+      "u4Title": "HR onboarding",
+      "u4Body": "Documents, checklists, reminders and traceability of steps.",
+      "u5Title": "Reporting & KPIs",
+      "u5Body": "Time, costs, compliance: dashboards and usable reports.",
+      "u6Title": "Integrations",
+      "u6Body": "ERP / CRM / Outlook / Drive / API: connect what you already use."
+    },
+    "security": {
+      "title": "Security & sovereignty",
+      "subtitle": "What we can guarantee (and document): EU-first, confidentiality, auditability.",
+      "s1Title": "EU data (or on‑prem)",
+      "s1Body": "Processing and storage in the EU (e.g., Hetzner Germany) or on‑prem deployment if required.",
+      "s2Title": "Never used for training",
+      "s2Body": "Customer data is never used to train public models.",
+      "s3Title": "Encryption",
+      "s3Body": "Encryption in transit (TLS) and at rest (encrypted volumes) on our deployments.",
+      "auditTitle": "Customer audit log",
+      "auditBody": "Audit log available: actions, steps, validations — useful for compliance and internal control."
+    },
+    "process": {
+      "title": "The “3A Certified” process",
+      "subtitle": "4 steps: robust, tested, result‑driven.",
+      "p1Title": "1) High‑precision design",
+      "p1Body": "Architecture built by our engineers for stability and robustness.",
+      "p2Title": "2) Legal check & validation",
+      "p2Body": "Pre‑validation with EU constraints and requirements in mind.",
+      "p3Title": "3) Field beta test",
+      "p3Body": "Proof of Concept and refinement with real team feedback.",
+      "p4Title": "4) Deployment & continuous support",
+      "p4Body": "Go‑live + continuous improvement: we don’t disappear after delivery."
+    },
+    "founders": {
+      "title": "The founding duo",
+      "subtitle": "A rare mix: industrial execution + scientific rigor.",
+      "f1Title": "Mohamed Ledjiar — CEO",
+      "f1Body": "Electrotechnics/automation, management expertise. 30 years in industry & aviation (“zero‑error” culture).",
+      "f2Title": "Amine Chabane — CTO",
+      "f2Body": "PhD Physics (Uni Frankfurt) & quantum computing. Complex systems and advanced engineering specialist."
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Quick answers before you book.",
+      "q1Title": "Do my data leave the EU?",
+      "q1Body": "No. EU-first (DE/FR) or on‑prem if required.",
+      "q2Title": "Any hidden fees?",
+      "q2Body": "No. Setup, monthly and (if relevant) consumption are explicit.",
+      "q3Title": "What about AI hallucinations?",
+      "q3Body": "Approval steps (human-in-the-loop) + audit log. AI assists, humans decide.",
+      "q4Title": "Can you integrate our tools?",
+      "q4Body": "Yes. We connect your stack via integrations/APIs."
+    },
+    "finalCta": {
+      "title": "Your first certified agent in 30 days",
+      "subtitle": "Book a call and we’ll identify 1–2 workflows with the fastest ROI.",
+      "note": "Goal: measurable, documented outcomes — with continuous accompaniment."
     }
   }
 }
