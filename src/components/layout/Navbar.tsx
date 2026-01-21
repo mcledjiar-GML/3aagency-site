@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import Container from "./Container";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { ButtonLink } from "../ui/Button";
+
+const CALENDLY_URL = "https://calendly.com/contact-3aagency/30min";
 
 export default function Navbar() {
   const locale = useLocale();
@@ -12,10 +12,7 @@ export default function Navbar() {
 
   return (
     <header style={{ borderBottom: "1px solid var(--border)" }}>
-      <Container
-        className="nav"
-        // petit padding vertical simple
-      >
+      <div className="container nav">
         <div
           style={{
             display: "flex",
@@ -31,10 +28,7 @@ export default function Navbar() {
             style={{ display: "inline-flex", alignItems: "center", lineHeight: 0 }}
           >
             <picture>
-              <source
-                media="(prefers-color-scheme: dark)"
-                srcSet="/brand/logo-dark.svg"
-              />
+              <source media="(prefers-color-scheme: dark)" srcSet="/brand/logo-dark.svg" />
               <img
                 src="/brand/logo.svg"
                 alt="3AAgency"
@@ -46,19 +40,21 @@ export default function Navbar() {
           </Link>
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <LanguageSwitcher />
+            <nav aria-label="Language switcher">
+              <LanguageSwitcher />
+            </nav>
 
-            <ButtonLink
-              href="https://calendly.com/contact-3aagency/30min"
+            <a
+              href={CALENDLY_URL}
+              className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
-              variant="primary"
             >
               {t("cta")}
-            </ButtonLink>
+            </a>
           </div>
         </div>
-      </Container>
+      </div>
     </header>
   );
 }
