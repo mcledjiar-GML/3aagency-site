@@ -4,11 +4,11 @@ export const routing = defineRouting({
   locales: ['de', 'fr', 'en'] as const,
   defaultLocale: 'en',
 
-  // URLs toujours préfixées: /en, /fr, /de
+  // on garde /de /fr /en (et / redirige vers une locale)
   localePrefix: 'always',
 
-  // stable (évite que / change selon Accept-Language)
-  localeDetection: false
+  // IMPORTANT: on veut cookie / Accept-Language => donc TRUE
+  localeDetection: true
 });
 
 export type Locale = (typeof routing.locales)[number];
