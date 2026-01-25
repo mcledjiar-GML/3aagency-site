@@ -18,23 +18,6 @@ const ReportTo = JSON.stringify({
 
 const ReportingEndpoints = `csp-endpoint="${CSP_REPORT_URL}"`;
 
-const ContentSecurityPolicy = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  "object-src 'none'",
-  "img-src 'self' data:",
-  "font-src 'self' data:",
-  "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline'",
-  "connect-src 'self'",
-  "frame-src 'self'",
-  'upgrade-insecure-requests',
-  'report-to csp-endpoint',
-  'report-uri /api/csp-report',
-].join('; ');
-
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
@@ -43,11 +26,9 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          // Reporting API headers (CSP est injectée par middleware avec nonce)
           { key: 'Report-To', value: ReportTo },
           { key: 'Reporting-Endpoints', value: ReportingEndpoints },
-
-          { key: 'Content-Security-Policy', value: ContentSecurityPolicy },
-          { key: 'Content-Security-Policy-Report-Only', value: ContentSecurityPolicy },
 
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
