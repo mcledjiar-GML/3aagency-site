@@ -8,10 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// ---- CSP reporting endpoint (Phase 1) ----
-// On envoie les rapports CSP vers ton endpoint Next API.
-// Report-To (Reporting API) + Reporting-Endpoints (nouveau header)
-// + report-uri (compat historique)
+// ---- CSP reporting endpoint ----
 const CSP_REPORT_URL = 'https://www.3aagency.eu/api/csp-report';
 
 const ReportTo = JSON.stringify({
@@ -22,9 +19,14 @@ const ReportTo = JSON.stringify({
 
 const ReportingEndpoints = `csp-endpoint="${CSP_REPORT_URL}"`;
 
-// Phase 1 (safe + compatible): CSP en REPORT-ONLY pour éviter de casser Next/tiers.
-// On durcira en Phase 2 (nonce/hashes + allowlist domaines réels).
-const ContentSecurityPolicyReportOnly = [
+// ------------------------------------------------------------
+// Phase 2A
+// 1) CSP ENFORCE (baseline compatible) -> ne casse pas
+// 2) CSP REPORT-ONLY (plus stricte) -> remonte ce qu’il faudra allowlister
+// ------------------------------------------------------------
+
+// Enforce = ta CSP “compatible” actuelle
+const ContentSecurityPolicyEnforce = [
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -33,13 +35,33 @@ const ContentSecurityPolicyReportOnly = [
   "img-src 'self' data: https:",
   "font-src 'self' data: https:",
   "style-src 'self' 'unsafe-inline' https:",
-  // Phase 1: compatible Next + tiers (durcissement en Phase 2)
   "script-src 'self' 'unsafe-inline' https:",
   "connect-src 'self' https:",
   "frame-src https:",
   'upgrade-insecure-requests',
 
-  // Reporting (Phase 1)
+  // reporting
+  'report-to csp-endpoint',
+  'report-uri /api/csp-report',
+].join('; ');
+
+// Report-Only plus strict (détecte domaines externes) sans bruit “inline Next”
+// -> on garde 'unsafe-inline' pour éviter des reports à chaque page (Next injecte des inline scripts)
+const ContentSecurityPolicyReportOnlyCandidate = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "img-src 'self' data:",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline'",
+  "connect-src 'self'",
+  "frame-src 'self'",
+  'upgrade-insecure-requests',
+
+  // reporting
   'report-to csp-endpoint',
   'report-uri /api/csp-report',
 ].join('; ');
@@ -52,20 +74,21 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
-          // Reporting API headers (pour recevoir les rapports CSP)
+          // Reporting API headers
           { key: 'Report-To', value: ReportTo },
           { key: 'Reporting-Endpoints', value: ReportingEndpoints },
 
-          // CSP Phase 1: Report-Only (ne bloque rien, mais remonte les violations)
+          // CSP (Phase 2A)
+          { key: 'Content-Security-Policy', value: ContentSecurityPolicyEnforce },
           {
             key: 'Content-Security-Policy-Report-Only',
-            value: ContentSecurityPolicyReportOnly,
+            value: ContentSecurityPolicyReportOnlyCandidate,
           },
 
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
 
-          // Phase 1: OK. Phase 2: on s'appuiera plutôt sur frame-ancestors en CSP enforce.
+          // Clickjacking
           { key: 'X-Frame-Options', value: 'DENY' },
 
           {
@@ -73,17 +96,15 @@ const nextConfig: NextConfig = {
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
           },
 
-          // Future-proof for OAuth popups
+          // OAuth popups ok
           { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
-
-          // On garde en Phase 1 (à revalider selon ressources externes)
           { key: 'Cross-Origin-Resource-Policy', value: 'same-site' },
 
           { key: 'Origin-Agent-Cluster', value: '?1' },
           { key: 'X-Permitted-Cross-Domain-Policies', value: 'none' },
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
 
-          // HSTS: tu as includeSubDomains. On confirmera "preload" plus tard si tout est OK.
+          // HSTS
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
         ],
       },
