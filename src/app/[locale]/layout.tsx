@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 
 import {routing, type Locale} from '../../i18n/routing';
@@ -17,6 +17,19 @@ function getSiteUrl(): string {
 
   const raw = (fromEnv || fromVercel || 'http://localhost:3000').trim();
   return raw.endsWith('/') ? raw.slice(0, -1) : raw;
+}
+
+function getOgLocale(locale: Locale): string {
+  // Valeurs courantes OpenGraph
+  switch (locale) {
+    case 'fr':
+      return 'fr_FR';
+    case 'de':
+      return 'de_DE';
+    case 'en':
+    default:
+      return 'en_US';
+  }
 }
 
 export function generateStaticParams() {
@@ -35,17 +48,56 @@ export async function generateMetadata({
     : routing.defaultLocale;
 
   const siteUrl = getSiteUrl();
+  const metadataBase = new URL(siteUrl);
+
+  // ✅ On réutilise tes textes existants (déjà traduits dans /en /fr /de)
+  const t = await getTranslations({locale, namespace: 'Landing'});
+
+  // Title / description SSR
+  const pageTitle = `${t('hero.title')} | 3A Agency`;
+  const pageDescription = t('hero.subtitle');
+
+  const canonicalPath = `/${locale}`;
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase,
+
+    // ✅ SEO “classique”
+    title: pageTitle,
+    description: pageDescription,
+    robots: {
+      index: true,
+      follow: true
+    },
+
+    // ✅ Canonical + hreflang (déjà OK chez toi)
     alternates: {
-      canonical: `/${locale}`,
+      canonical: canonicalPath,
       languages: {
         'x-default': `/${routing.defaultLocale}`,
         en: '/en',
         fr: '/fr',
         de: '/de'
       }
+    },
+
+    // ✅ OpenGraph
+    openGraph: {
+      type: 'website',
+      siteName: '3A Agency',
+      locale: getOgLocale(locale),
+      title: pageTitle,
+      description: pageDescription,
+      url: canonicalPath
+      // images: ['/og.png'], // optionnel si tu as un OG image
+    },
+
+    // ✅ Twitter
+    twitter: {
+      card: 'summary_large_image',
+      title: pageTitle,
+      description: pageDescription
+      // images: ['/og.png'], // optionnel si tu as un OG image
     }
   };
 }
