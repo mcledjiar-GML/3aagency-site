@@ -8,6 +8,9 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// CSP "safe hardening":
+// - Keep style-src 'unsafe-inline' (React inline styles depend on it)
+// - Remove 'unsafe-inline' from script-src (biggest XSS protection boost)
 const ContentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -17,7 +20,7 @@ const ContentSecurityPolicy = [
   "img-src 'self' data: https:",
   "font-src 'self' data: https:",
   "style-src 'self' 'unsafe-inline' https:",
-  "script-src 'self' 'unsafe-inline' https:",
+  "script-src 'self' https:", // ✅ no 'unsafe-inline'
   "connect-src 'self' https:",
   'upgrade-insecure-requests',
 ].join('; ');
