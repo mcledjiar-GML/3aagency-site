@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 
 const LOCALES = ["de", "fr", "en"] as const;
 type Locale = (typeof LOCALES)[number];
+
+function normalizeLocale(input: string): Locale {
+  const lowered = (input || "").toLowerCase();
+  return (LOCALES.includes(lowered as Locale) ? lowered : "en") as Locale;
+}
 
 function stripLocale(pathname: string): string {
   const pattern = new RegExp(`^/(${LOCALES.join("|")})(?=/|$)`, "i");
@@ -16,7 +20,9 @@ function stripLocale(pathname: string): string {
 function setCookie(name: string, value: string, maxAgeSeconds: number) {
   const secure =
     typeof window !== "undefined" && window.location.protocol === "https:" ? "; Secure" : "";
-  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${maxAgeSeconds}; SameSite=Lax${secure}`;
+  document.cookie = `${name}=${encodeURIComponent(
+    value
+  )}; Path=/; Max-Age=${maxAgeSeconds}; SameSite=Lax${secure}`;
 }
 
 function rememberLocale(locale: Locale) {
@@ -25,16 +31,15 @@ function rememberLocale(locale: Locale) {
   setCookie("NEXT_LOCALE_SET", "1", oneYear);
 }
 
-export default function LanguageSwitcher() {
-  const locale = useLocale() as Locale;
+export default function LanguageSwitcher({ locale }: { locale: string }) {
+  const currentLocale = normalizeLocale(locale);
   const pathname = usePathname() || "/";
-
   const rest = stripLocale(pathname);
 
   return (
     <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
       {LOCALES.map((l) => {
-        const isActive = l === locale;
+        const isActive = l === currentLocale;
         const href = rest === "/" ? `/${l}` : `/${l}${rest}`;
 
         return (

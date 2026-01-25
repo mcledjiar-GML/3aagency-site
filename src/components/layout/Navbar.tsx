@@ -1,14 +1,12 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const CALENDLY_URL = "https://calendly.com/contact-3aagency/30min";
 
-export default function Navbar() {
-  const locale = useLocale();
-  const t = useTranslations("Nav");
+export default async function Navbar() {
+  const locale = await getLocale();
+  const t = await getTranslations("Nav");
 
   return (
     <header style={{ borderBottom: "1px solid var(--border)" }}>
@@ -41,7 +39,7 @@ export default function Navbar() {
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <nav aria-label="Language switcher">
-              <LanguageSwitcher />
+              <LanguageSwitcher locale={locale} />
             </nav>
 
             <a
