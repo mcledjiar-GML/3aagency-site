@@ -8,6 +8,20 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// ---- CSP reporting endpoint (Phase 1) ----
+// On envoie les rapports CSP vers ton endpoint Next API.
+// Report-To (Reporting API) + Reporting-Endpoints (nouveau header)
+// + report-uri (compat historique)
+const CSP_REPORT_URL = 'https://www.3aagency.eu/api/csp-report';
+
+const ReportTo = JSON.stringify({
+  group: 'csp-endpoint',
+  max_age: 10886400, // ~18 semaines
+  endpoints: [{ url: CSP_REPORT_URL }],
+});
+
+const ReportingEndpoints = `csp-endpoint="${CSP_REPORT_URL}"`;
+
 // Phase 1 (safe + compatible): CSP en REPORT-ONLY pour éviter de casser Next/tiers.
 // On durcira en Phase 2 (nonce/hashes + allowlist domaines réels).
 const ContentSecurityPolicyReportOnly = [
@@ -24,6 +38,10 @@ const ContentSecurityPolicyReportOnly = [
   "connect-src 'self' https:",
   "frame-src https:",
   'upgrade-insecure-requests',
+
+  // Reporting (Phase 1)
+  'report-to csp-endpoint',
+  'report-uri /api/csp-report',
 ].join('; ');
 
 const nextConfig: NextConfig = {
@@ -34,7 +52,11 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
-          // CSP Phase 1: Report-Only (ne bloque rien, mais permet de voir les violations)
+          // Reporting API headers (pour recevoir les rapports CSP)
+          { key: 'Report-To', value: ReportTo },
+          { key: 'Reporting-Endpoints', value: ReportingEndpoints },
+
+          // CSP Phase 1: Report-Only (ne bloque rien, mais remonte les violations)
           {
             key: 'Content-Security-Policy-Report-Only',
             value: ContentSecurityPolicyReportOnly,
