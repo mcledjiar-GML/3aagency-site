@@ -19,7 +19,9 @@ function stripLocale(pathname: string): string {
 
 function setCookie(name: string, value: string, maxAgeSeconds: number) {
   const secure =
-    typeof window !== "undefined" && window.location.protocol === "https:" ? "; Secure" : "";
+    typeof window !== "undefined" && window.location.protocol === "https:"
+      ? "; Secure"
+      : "";
   document.cookie = `${name}=${encodeURIComponent(
     value
   )}; Path=/; Max-Age=${maxAgeSeconds}; SameSite=Lax${secure}`;
@@ -31,6 +33,28 @@ function rememberLocale(locale: Locale) {
   setCookie("NEXT_LOCALE_SET", "1", oneYear);
 }
 
+/**
+ * Pages légales avec slug localisé :
+ * - EN: /imprint
+ * - FR: /mentions-legales
+ * - DE: /impressum
+ *
+ * Pour privacy/cookies, le slug reste identique.
+ */
+function mapLocalizedLegalPath(restPath: string, targetLocale: Locale): string {
+  if (
+    restPath === "/imprint" ||
+    restPath === "/mentions-legales" ||
+    restPath === "/impressum"
+  ) {
+    if (targetLocale === "fr") return "/mentions-legales";
+    if (targetLocale === "de") return "/impressum";
+    return "/imprint";
+  }
+
+  return restPath;
+}
+
 export default function LanguageSwitcher({ locale }: { locale: string }) {
   const currentLocale = normalizeLocale(locale);
   const pathname = usePathname() || "/";
@@ -40,7 +64,9 @@ export default function LanguageSwitcher({ locale }: { locale: string }) {
     <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
       {LOCALES.map((l) => {
         const isActive = l === currentLocale;
-        const href = rest === "/" ? `/${l}` : `/${l}${rest}`;
+
+        const localizedRest = mapLocalizedLegalPath(rest, l);
+        const href = localizedRest === "/" ? `/${l}` : `/${l}${localizedRest}`;
 
         return (
           <Link
