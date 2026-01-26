@@ -39,5 +39,6 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
+  // IMPORTANT: on exclut aussi /monitoring (tunnel Sentry)
+  matcher: '/((?!api|trpc|_next|_vercel|monitoring|.*\\..*).*)',
 };

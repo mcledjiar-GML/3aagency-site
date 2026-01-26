@@ -6,6 +6,7 @@ export default function NotFound() {
       <h1>Page introuvable</h1>
       <p>Le lien est peut-être incorrect.</p>
 
+      {/* Le "/" redirige vers la bonne locale via ton middleware */}
       <Link href="/">Retour à l’accueil</Link>
     </main>
   );
