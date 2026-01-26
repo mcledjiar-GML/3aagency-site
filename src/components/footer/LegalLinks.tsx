@@ -8,11 +8,16 @@ import { isLocale, pathFor, type Locale } from "@/lib/legal";
 
 const LABELS: Record<
   Locale,
-  { privacy: string; cookies: string; imprint: string }
+  { privacy: string; cookies: string; imprint: string; terms: string }
 > = {
-  en: { privacy: "Privacy", cookies: "Cookies", imprint: "Imprint" },
-  fr: { privacy: "Confidentialité", cookies: "Cookies", imprint: "Mentions légales" },
-  de: { privacy: "Datenschutz", cookies: "Cookies", imprint: "Impressum" },
+  en: { privacy: "Privacy", cookies: "Cookies", imprint: "Imprint", terms: "Terms" },
+  fr: {
+    privacy: "Confidentialité",
+    cookies: "Cookies",
+    imprint: "Mentions légales",
+    terms: "CGV",
+  },
+  de: { privacy: "Datenschutz", cookies: "Cookies", imprint: "Impressum", terms: "AGB" },
 };
 
 export default function LegalLinks() {
@@ -22,9 +27,10 @@ export default function LegalLinks() {
 
   const t = LABELS[locale];
 
-  // pathFor gère déjà l'imprint localisé (en: /imprint, fr: /mentions-legales, de: /impressum)
+  // pathFor() gère déjà les slugs localisés (imprint + terms)
   const hrefPrivacy = pathFor(locale, "privacy");
   const hrefImprint = pathFor(locale, "imprint_en");
+  const hrefTerms = pathFor(locale, "terms_en");
   const hrefCookies = pathFor(locale, "cookies");
 
   const wrapStyle: React.CSSProperties = {
@@ -54,6 +60,9 @@ export default function LegalLinks() {
         </Link>
         <Link href={hrefImprint} style={linkStyle}>
           {t.imprint}
+        </Link>
+        <Link href={hrefTerms} style={linkStyle}>
+          {t.terms}
         </Link>
         <Link href={hrefCookies} style={linkStyle}>
           {t.cookies}

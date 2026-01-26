@@ -9,9 +9,14 @@ export type Locale = (typeof LOCALES)[number];
 export type LegalDocKey =
   | "privacy"
   | "cookies"
+  // Imprint / Mentions légales / Impressum (slug localisé)
   | "imprint_en"
   | "mentions_legales_fr"
-  | "impressum_de";
+  | "impressum_de"
+  // Terms / CGV / AGB (slug localisé)
+  | "terms_en"
+  | "cgv_fr"
+  | "agb_de";
 
 export function isLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
@@ -19,11 +24,13 @@ export function isLocale(value: string): value is Locale {
 
 /**
  * Retourne le chemin "équivalent" par langue.
+ *
  * - privacy/cookies : slug identique dans toutes les langues
  * - imprint : slug localisé (en: /imprint, fr: /mentions-legales, de: /impressum)
+ * - terms : slug localisé (en: /terms, fr: /cgv, de: /agb)
  *
- * Note: pour les clés imprint_* on ignore la clé et on retourne la variante correcte selon locale.
- * Ça permet d'avoir des hreflang cohérents sur /en/imprint, /fr/mentions-legales, /de/impressum.
+ * Note: pour les clés imprint_* et terms_* on ignore la clé et on retourne la variante correcte selon locale.
+ * Ça permet d'avoir des hreflang cohérents entre les pages équivalentes.
  */
 export function pathFor(locale: Locale, key: LegalDocKey): string {
   switch (key) {
@@ -32,12 +39,22 @@ export function pathFor(locale: Locale, key: LegalDocKey): string {
     case "cookies":
       return `/${locale}/cookies`;
 
+    // Imprint group (localized slug)
     case "imprint_en":
     case "mentions_legales_fr":
     case "impressum_de": {
       if (locale === "fr") return `/${locale}/mentions-legales`;
       if (locale === "de") return `/${locale}/impressum`;
       return `/${locale}/imprint`;
+    }
+
+    // Terms group (localized slug)
+    case "terms_en":
+    case "cgv_fr":
+    case "agb_de": {
+      if (locale === "fr") return `/${locale}/cgv`;
+      if (locale === "de") return `/${locale}/agb`;
+      return `/${locale}/terms`;
     }
 
     default: {

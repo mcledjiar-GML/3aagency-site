@@ -34,14 +34,14 @@ function rememberLocale(locale: Locale) {
 }
 
 /**
- * Pages légales avec slug localisé :
- * - EN: /imprint
- * - FR: /mentions-legales
- * - DE: /impressum
+ * Pages légales avec slugs localisés :
+ * - Imprint: EN /imprint, FR /mentions-legales, DE /impressum
+ * - Terms:   EN /terms,   FR /cgv,             DE /agb
  *
- * Pour privacy/cookies, le slug reste identique.
+ * Pour privacy/cookies, slug identique.
  */
 function mapLocalizedLegalPath(restPath: string, targetLocale: Locale): string {
+  // Imprint group
   if (
     restPath === "/imprint" ||
     restPath === "/mentions-legales" ||
@@ -50,6 +50,13 @@ function mapLocalizedLegalPath(restPath: string, targetLocale: Locale): string {
     if (targetLocale === "fr") return "/mentions-legales";
     if (targetLocale === "de") return "/impressum";
     return "/imprint";
+  }
+
+  // Terms group
+  if (restPath === "/terms" || restPath === "/cgv" || restPath === "/agb") {
+    if (targetLocale === "fr") return "/cgv";
+    if (targetLocale === "de") return "/agb";
+    return "/terms";
   }
 
   return restPath;
