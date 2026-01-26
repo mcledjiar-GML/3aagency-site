@@ -1,39 +1,39 @@
 export const runtime = "nodejs";
 
-function getSentryUpstreamUrl(reqUrl: string) {
+function getSentryUpstreamUrl(reqUrl: string): { upstreamUrl: string } | { error: string } {
   const dsn =
     process.env.NEXT_PUBLIC_SENTRY_DSN ||
     process.env.SENTRY_DSN ||
     process.env.SENTRY_PUBLIC_DSN;
 
   if (!dsn) {
-    return { error: "Missing Sentry DSN (NEXT_PUBLIC_SENTRY_DSN / SENTRY_DSN)." as const };
+    return { error: "Missing Sentry DSN (NEXT_PUBLIC_SENTRY_DSN / SENTRY_DSN)." };
   }
 
   let dsnUrl: URL;
   try {
     dsnUrl = new URL(dsn);
   } catch {
-    return { error: "Invalid Sentry DSN format." as const };
+    return { error: "Invalid Sentry DSN format." };
   }
 
   const projectId = dsnUrl.pathname.replace("/", "");
   if (!projectId) {
-    return { error: "Invalid Sentry DSN: missing project id in path." as const };
+    return { error: "Invalid Sentry DSN: missing project id in path." };
   }
 
   // Preserve query params from incoming request (sentry_key, sentry_version, sentry_client, ...)
-  // If missing, we add minimal required ones from the DSN.
   const incoming = new URL(reqUrl);
   const qp = new URLSearchParams(incoming.searchParams);
 
+  // Add minimal required params if missing
   if (!qp.has("sentry_key") && dsnUrl.username) qp.set("sentry_key", dsnUrl.username);
   if (!qp.has("sentry_version")) qp.set("sentry_version", "7");
 
   const upstream = new URL(`https://${dsnUrl.host}/api/${projectId}/envelope/`);
   upstream.search = qp.toString();
 
-  return { upstreamUrl: upstream.toString() as const };
+  return { upstreamUrl: upstream.toString() };
 }
 
 export async function POST(req: Request) {
@@ -66,6 +66,5 @@ export async function POST(req: Request) {
 }
 
 export async function GET() {
-  // Simple check endpoint (useful for debugging). Sentry itself will POST envelopes here.
   return new Response("OK", { status: 200, headers: { "cache-control": "no-store" } });
 }
