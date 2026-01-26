@@ -10,11 +10,12 @@ export const PRIVACY_FR = {
     {
       heading: "1. Responsable du traitement",
       body: [
-        "Responsable du traitement : TODO (raison sociale)",
-        "Adresse : TODO",
-        "Email : TODO",
-        "Téléphone (optionnel) : TODO",
-        "DPO (si applicable) : TODO",
+        "Responsable du traitement : Mohamed LEDJIAR (nom commercial MyServX / 3A Agency).",
+        "Adresse : Wilhelmsplatz 13, 63065 Offenbach am Main, Allemagne.",
+        "Email : contact@3aagency.eu",
+        "Téléphone : +49 176 55615204",
+        "Numéro fiscal (Steuernummer) : 044 841 05363",
+        "TVA : Non applicable (statut Kleinunternehmer) conformément au § 19 UStG.",
       ],
     },
     {
@@ -37,29 +38,28 @@ export const PRIVACY_FR = {
       heading: "4. Cookies et traceurs",
       body: [
         "Nous n’utilisons pas de cookies publicitaires.",
-        "Nous n’utilisons que des cookies strictement nécessaires (ex. mémorisation de la langue) si besoin. Voir la page Cookies.",
+        "Nous n’utilisons que des cookies strictement nécessaires (ex. mémorisation de la langue). Voir la page Cookies.",
       ],
     },
     {
-      heading: "5. Sous-traitants",
+      heading: "5. Sous-traitants / prestataires",
       body: [
         "Hébergement : Vercel (délivrance du site).",
         "Supervision d’erreurs : Sentry (détection/correction de bugs).",
-        "NB : adaptez cette liste à votre configuration réelle.",
+        "Prise de rendez-vous (lien uniquement) : Calendly (uniquement après clic sur le lien externe).",
       ],
     },
     {
       heading: "6. Transferts hors UE",
       body: [
-        "Selon les prestataires et la configuration, certaines données peuvent être traitées dans l’UE et/ou hors UE. Le cas échéant, nous mettons en place des garanties appropriées (ex. CCT/SCC).",
-        "TODO : ajuster selon vos engagements de résidence des données.",
+        "Selon les prestataires et la configuration, certaines données peuvent être traitées dans l’UE et/ou hors UE. Le cas échéant, des garanties appropriées peuvent s’appliquer (ex. CCT/SCC).",
       ],
     },
     {
       heading: "7. Durées de conservation",
       body: [
         "Nous conservons les données uniquement le temps nécessaire aux finalités décrites, puis suppression ou anonymisation.",
-        "Exemples : logs techniques pendant une durée limitée (TODO), échanges de contact pour le suivi (TODO).",
+        "Exemples : logs techniques pendant une durée limitée, échanges de contact pour le suivi.",
       ],
     },
     {
@@ -67,7 +67,7 @@ export const PRIVACY_FR = {
       body: [
         "Selon la réglementation applicable, vous pouvez disposer de droits d’accès, rectification, effacement, limitation, portabilité et opposition.",
         "Vous pouvez également introduire une réclamation auprès d’une autorité de contrôle.",
-        "Contact : TODO (email).",
+        "Contact : contact@3aagency.eu",
       ],
     },
     {
@@ -97,7 +97,6 @@ export const COOKIES_FR = {
       body: [
         "Nous pouvons utiliser des cookies strictement nécessaires au fonctionnement (ex. préférence de langue, sécurité).",
         "Exemple fréquent sur un site multilingue : cookie de langue (ex. NEXT_LOCALE).",
-        "TODO : confirmer les noms exacts en production (DevTools → Application → Cookies).",
       ],
     },
     {
@@ -124,24 +123,18 @@ export const MENTIONS_LEGALES_FR = {
     {
       heading: "Éditeur du site",
       body: [
-        "Raison sociale : TODO",
-        "Forme juridique : TODO",
-        "Adresse : TODO",
-        "Email : TODO",
-        "Téléphone (optionnel) : TODO",
-        "Directeur de la publication : TODO (nom/prénom)",
-      ],
-    },
-    {
-      heading: "Immatriculation",
-      body: [
-        "RCS / RNE : TODO (si applicable)",
-        "Numéro TVA intracommunautaire : TODO (si applicable)",
+        "Éditeur : Mohamed LEDJIAR (nom commercial MyServX / 3A Agency).",
+        "Adresse : Wilhelmsplatz 13, 63065 Offenbach am Main, Allemagne.",
+        "Email : contact@3aagency.eu",
+        "Téléphone : +49 176 55615204",
+        "Numéro fiscal (Steuernummer) : 044 841 05363",
+        "TVA : Non applicable (statut Kleinunternehmer) conformément au § 19 UStG.",
+        "Directeur de la publication : Mohamed LEDJIAR",
       ],
     },
     {
       heading: "Hébergement",
-      body: ["Hébergeur : Vercel (TODO : adresse si souhaité)"],
+      body: ["Hébergeur : Vercel"],
     },
     {
       heading: "Propriété intellectuelle",

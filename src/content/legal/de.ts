@@ -10,11 +10,12 @@ export const PRIVACY_DE = {
     {
       heading: "1. Verantwortlicher",
       body: [
-        "Verantwortlicher: TODO (Firma/Name)",
-        "Adresse: TODO",
-        "E-Mail: TODO",
-        "Telefon (optional): TODO",
-        "Datenschutzbeauftragter (falls vorhanden): TODO",
+        "Verantwortlicher: Mohamed LEDJIAR (handelnd als MyServX / 3A Agency).",
+        "Anschrift: Wilhelmsplatz 13, 63065 Offenbach am Main, Deutschland.",
+        "E-Mail: contact@3aagency.eu",
+        "Telefon: +49 176 55615204",
+        "Steuernummer: 044 841 05363",
+        "Umsatzsteuer: Nicht anwendbar (Kleinunternehmerregelung) gemäß § 19 UStG.",
       ],
     },
     {
@@ -28,8 +29,8 @@ export const PRIVACY_DE = {
     {
       heading: "3. Zwecke und Rechtsgrundlagen",
       body: [
-        "Bereitstellung, Sicherheit und Missbrauchsprävention (berechtigtes Interesse).",
-        "Beantwortung von Anfragen / vorvertragliche Maßnahmen (Vertrag / berechtigtes Interesse).",
+        "Bereitstellung der Website, Sicherheit und Missbrauchsprävention (berechtigtes Interesse).",
+        "Beantwortung von Anfragen und vorvertragliche Maßnahmen (Vertrag / berechtigtes Interesse).",
         "Technisches Monitoring und Fehlerbehebung (berechtigtes Interesse).",
       ],
     },
@@ -37,29 +38,28 @@ export const PRIVACY_DE = {
       heading: "4. Cookies",
       body: [
         "Keine Werbe-Cookies.",
-        "Nur technisch notwendige Cookies (z. B. Sprachpräferenz) falls erforderlich. Details auf der Cookies-Seite.",
+        "Wir verwenden nur technisch notwendige Cookies (z. B. zur Speicherung der Sprachpräferenz). Details finden Sie in der Cookie-Richtlinie.",
       ],
     },
     {
-      heading: "5. Auftragsverarbeiter",
+      heading: "5. Auftragsverarbeiter / Dienstleister",
       body: [
-        "Hosting: Vercel.",
-        "Fehler-Monitoring: Sentry.",
-        "Hinweis: Liste entsprechend Ihrer tatsächlichen Konfiguration anpassen.",
+        "Hosting: Vercel (Bereitstellung der Website).",
+        "Fehler-Monitoring: Sentry (Erkennung und Behebung von Fehlern).",
+        "Terminbuchung (nur Link): Calendly (erst nach Klick auf den externen Link).",
       ],
     },
     {
       heading: "6. Datenübermittlung in Drittländer",
       body: [
         "Je nach Anbieter/Setup können Daten in der EU und/oder außerhalb der EU verarbeitet werden. Falls erforderlich, nutzen wir geeignete Garantien (z. B. Standardvertragsklauseln).",
-        "TODO: An Ihre tatsächlichen Zusagen zur Datenresidenz anpassen.",
       ],
     },
     {
       heading: "7. Speicherdauer",
       body: [
         "Wir speichern Daten nur so lange, wie es für die genannten Zwecke erforderlich ist, anschließend Löschung/Anonymisierung.",
-        "Beispiele: technische Logs für begrenzte Zeit (TODO), Kommunikationsdaten für Follow-up (TODO).",
+        "Beispiele: technische Logs für begrenzte Zeit, Kommunikationsdaten für Follow-up.",
       ],
     },
     {
@@ -67,7 +67,7 @@ export const PRIVACY_DE = {
       body: [
         "Je nach Rechtslage bestehen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch.",
         "Sie können sich außerdem bei einer Aufsichtsbehörde beschweren.",
-        "Kontakt: TODO (E-Mail).",
+        "Kontakt: contact@3aagency.eu",
       ],
     },
     {
@@ -97,7 +97,6 @@ export const COOKIES_DE = {
       body: [
         "Wir können technisch notwendige Cookies für Kernfunktionalität und Sicherheit verwenden.",
         "Beispiel (mehrsprachige Websites): Cookie zur Sprachpräferenz (z. B. NEXT_LOCALE).",
-        "TODO: Cookie-Namen in Produktion verifizieren (DevTools → Application → Cookies).",
       ],
     },
     {
@@ -122,26 +121,24 @@ export const IMPRESSUM_DE = {
   lastUpdated: LAST_UPDATED_DE,
   sections: [
     {
-      heading: "Angaben gemäß § 5 DDG",
+      heading: "Anbieter",
       body: [
-        "Anbieter: TODO (Firma/Name)",
-        "Rechtsform: TODO",
-        "Anschrift: TODO",
-        "E-Mail: TODO",
-        "Telefon (optional): TODO",
+        "Mohamed LEDJIAR (MyServX / 3A Agency).",
+        "Wilhelmsplatz 13, 63065 Offenbach am Main, Deutschland.",
+        "E-Mail: contact@3aagency.eu",
+        "Telefon: +49 176 55615204",
       ],
     },
     {
-      heading: "Registereintrag (falls vorhanden)",
-      body: ["Registergericht: TODO", "Registernummer: TODO", "USt-IdNr.: TODO"],
-    },
-    {
-      heading: "Verantwortlich für den Inhalt (optional)",
-      body: ["TODO: Name, Anschrift (falls erforderlich)"],
+      heading: "Steuerliche Angaben",
+      body: [
+        "Steuernummer: 044 841 05363",
+        "Umsatzsteuer: Nicht anwendbar (Kleinunternehmerregelung) gemäß § 19 UStG.",
+      ],
     },
     {
       heading: "Hosting",
-      body: ["Hosting: Vercel (TODO: Anschrift falls gewünscht)"],
+      body: ["Hosting: Vercel"],
     },
     {
       heading: "Haftungshinweis",

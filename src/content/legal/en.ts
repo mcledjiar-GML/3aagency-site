@@ -10,11 +10,12 @@ export const PRIVACY_EN = {
     {
       heading: "1. Controller",
       body: [
-        "Controller (data controller): TODO: Legal entity name",
-        "Address: TODO",
-        "Email: TODO",
-        "Phone (optional): TODO",
-        "If you have a DPO: TODO",
+        "Controller (data controller): Mohamed LEDJIAR (trading as MyServX / 3A Agency).",
+        "Address: Wilhelmsplatz 13, 63065 Offenbach am Main, Germany.",
+        "Email: contact@3aagency.eu",
+        "Phone: +49 176 55615204",
+        "Tax Number (Steuernummer): 044 841 05363",
+        "VAT: Not applicable (small business status / Kleinunternehmer) according to § 19 UStG.",
       ],
     },
     {
@@ -45,21 +46,20 @@ export const PRIVACY_EN = {
       body: [
         "Hosting: Vercel (website delivery).",
         "Error monitoring: Sentry (to detect and fix issues).",
-        "Note: Replace/extend this list according to your actual configuration.",
+        "Appointment scheduling (link-only): Calendly (only when you click the external link).",
       ],
     },
     {
       heading: "6. International transfers",
       body: [
         "Depending on providers and configuration, data may be processed in the EU and/or other jurisdictions. Where applicable, we rely on appropriate safeguards (e.g., Standard Contractual Clauses).",
-        "TODO: Adjust to your real hosting / data residency commitments.",
       ],
     },
     {
       heading: "7. Retention",
       body: [
         "We keep personal data only as long as necessary for the purposes described above, then delete or anonymize it.",
-        "Typical examples: server logs for a limited period (TODO: your retention), inquiry emails as needed for follow-up (TODO).",
+        "Typical examples: server logs for a limited period, inquiry emails as needed for follow-up.",
       ],
     },
     {
@@ -67,7 +67,7 @@ export const PRIVACY_EN = {
       body: [
         "You may have rights of access, rectification, erasure, restriction, portability, and objection, depending on your jurisdiction.",
         "You can also lodge a complaint with a supervisory authority.",
-        "Contact us at: TODO (email).",
+        "Contact us at: contact@3aagency.eu",
       ],
     },
     {
@@ -97,7 +97,6 @@ export const COOKIES_EN = {
       body: [
         "We may use strictly necessary cookies required for core functionality and security.",
         "Example (common on multilingual sites): a cookie to remember your language preference (e.g., NEXT_LOCALE).",
-        "TODO: Confirm the exact cookie names used in production (browser DevTools → Application → Cookies).",
       ],
     },
     {
@@ -122,29 +121,28 @@ export const IMPRINT_EN = {
   lastUpdated: LAST_UPDATED_EN,
   sections: [
     {
-      heading: "Legal entity",
+      heading: "Provider",
       body: [
-        "TODO: Legal entity name",
-        "TODO: Legal form (e.g., GmbH, SAS, etc.)",
-        "TODO: Address",
-        "TODO: Email",
-        "TODO: Phone (optional)",
+        "Mohamed LEDJIAR (trading as MyServX / 3A Agency).",
+        "Address: Wilhelmsplatz 13, 63065 Offenbach am Main, Germany.",
+        "Email: contact@3aagency.eu",
+        "Phone: +49 176 55615204",
       ],
     },
     {
-      heading: "Registration",
+      heading: "Tax information",
       body: [
-        "TODO: Company register / registration number (if applicable)",
-        "TODO: VAT ID (if applicable)",
+        "Tax Number (Steuernummer): 044 841 05363",
+        "VAT: Not applicable (small business status / Kleinunternehmer) according to § 19 UStG.",
       ],
     },
     {
       heading: "Responsible for content",
-      body: ["TODO: Name of the person responsible for content (if applicable)"],
+      body: ["Mohamed LEDJIAR"],
     },
     {
       heading: "Hosting",
-      body: ["Hosting provider: Vercel (TODO: address if you want to include it)"],
+      body: ["Hosting provider: Vercel"],
     },
     {
       heading: "Disclaimer",
