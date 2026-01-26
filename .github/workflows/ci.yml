@@ -1,9 +1,10 @@
-﻿name: CI
+name: CI
 
 on:
   pull_request:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build-and-qa:
@@ -23,8 +24,8 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Lint (if present)
-              run: npm run lint -- --max-warnings=9999
+      - name: Lint (warnings allowed)
+        run: npm run lint -- --max-warnings=9999
 
       - name: i18n check (if present)
         run: npm run i18n:check --if-present
@@ -34,4 +35,3 @@ jobs:
 
       - name: QA (build+start checks)
         run: node scripts/qa-prod.mjs
-
