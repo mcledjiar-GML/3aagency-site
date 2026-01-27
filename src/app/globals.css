@@ -107,6 +107,69 @@ img {
 
 .section {
   padding: var(--section-y) 0;
+  position: relative;
+}
+
+/* ✅ Séparateur premium (ligne + micro fade) */
+.section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-soft);
+  opacity: 0.55;
+}
+
+.section:not(.hero)::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--canvas) 70%, var(--section) 30%) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+/* ✅ Sur les sections alternées : fade plus léger */
+.section--alt::after,
+.section-alt::after {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--section) 82%, var(--canvas) 18%) 0%,
+    transparent 100%
+  );
+  opacity: 0.55;
+}
+
+/* ✅ Rend la transition beaucoup plus subtile UNIQUEMENT pour Security et Process */
+#security.section--alt::before,
+#process.section--alt::before {
+  opacity: 0.28;
+}
+
+#security.section--alt::after,
+#process.section--alt::after {
+  height: 14px;
+  opacity: 0.28;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--section) 70%, var(--canvas) 30%) 0%,
+    transparent 100%
+  );
+}
+
+/* ✅ Security trop “flagrant” → alt plus léger uniquement pour cette section */
+#security.section--alt,
+#security.section-alt {
+  background: color-mix(in oklab, var(--canvas) 78%, var(--section) 22%);
 }
 
 .hero {
@@ -204,7 +267,6 @@ img {
   position: relative;
 }
 
-/* CTA secondaire : flèche via CSS (pas dans i18n) */
 .btn-secondary::after {
   content: " \2192"; /* → */
   display: inline-block;
@@ -254,7 +316,6 @@ img {
   color: var(--muted);
 }
 
-/* A11y: stronger contrast for body text inside cards */
 .card .card-text {
   color: color-mix(in oklab, var(--fg) 76%, var(--muted) 24%);
 }
@@ -313,7 +374,6 @@ img {
   }
 }
 
-/* Timeline */
 .timeline {
   margin: 0;
   padding: 0;
@@ -337,7 +397,6 @@ img {
   padding-top: 1px;
 }
 
-/* ligne plus visible (light + dark) */
 .step-marker::after {
   content: "";
   position: absolute;
@@ -354,7 +413,6 @@ img {
   display: none;
 }
 
-/* badges “UI” */
 .step-badge {
   width: 32px;
   height: 32px;
@@ -370,7 +428,6 @@ img {
   justify-content: center;
 }
 
-/* ✅ Dark polish : ligne + badges plus premium, moins “orangé” */
 @media (prefers-color-scheme: dark) {
   .step-marker::after {
     background: color-mix(in oklab, var(--border) 85%, transparent 15%);
@@ -395,7 +452,6 @@ img {
   color: var(--muted);
 }
 
-/* Panel UI */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border-soft);
@@ -479,7 +535,6 @@ img {
   color: var(--fg);
 }
 
-/* Micro wireframe */
 .wireframe {
   margin-top: 12px;
   border: 1px solid var(--border-soft);
@@ -597,7 +652,6 @@ a:focus-visible {
   border-radius: 12px;
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .card,
   .btn,

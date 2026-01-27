@@ -109,8 +109,8 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* TRUST TRIO */}
-      <Section id="trust">
+      {/* TRUST TRIO (ALT pour mieux séparer visuellement) */}
+      <Section id="trust" className="section section--alt">
         <Container>
           <h2 className="h2">{t('trust.title')}</h2>
           <p className="lead">{t('trust.subtitle')}</p>
@@ -490,8 +490,8 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* FAQ */}
-      <Section id="faq">
+      {/* FAQ (ALT pour mieux séparer visuellement) */}
+      <Section id="faq" className="section section--alt">
         <Container>
           <h2 className="h2">{t('faq.title')}</h2>
           <p className="lead">{t('faq.subtitle')}</p>
