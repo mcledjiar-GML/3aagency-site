@@ -75,7 +75,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* PRODUCT STRIP (signal produit) */}
+      {/* PRODUCT STRIP */}
       <Section className="section">
         <Container>
           <div className="product-strip">
@@ -109,7 +109,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* TRUST TRIO (ALT) */}
+      {/* TRUST */}
       <Section id="trust" className="section section--alt">
         <Container>
           <h2 className="h2">{t('trust.title')}</h2>
@@ -134,7 +134,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SOLUTIONS STAR */}
+      {/* SOLUTIONS */}
       <Section id="solutions">
         <Container>
           <h2 className="h2">{t('solutions.title')}</h2>
@@ -209,7 +209,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SECURITY (ALT subtil) */}
+      {/* SECURITY (rollback = simple card) */}
       <Section id="security" className="section--alt">
         <Container>
           <h2 className="h2">{t('security.title')}</h2>
@@ -241,7 +241,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* PROCESS 3A CERTIFIED */}
+      {/* PROCESS */}
       <Section id="process" className="section section--alt">
         <Container>
           <div className="process-header">
@@ -488,7 +488,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* FAQ (ALT) */}
+      {/* FAQ */}
       <Section id="faq" className="section section--alt">
         <Container>
           <h2 className="h2">{t('faq.title')}</h2>
@@ -552,7 +552,6 @@ export default async function Page({
 
             <div style={{marginTop: 10}} className="muted">
               <small>{t('finalCta.note')}</small>
-            </small>
             </div>
           </div>
         </Container>
