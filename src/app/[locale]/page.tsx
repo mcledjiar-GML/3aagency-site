@@ -31,7 +31,8 @@ export default async function Page({
     <main
       style={{
         background:
-          'radial-gradient(1200px 600px at 80% 10%, rgba(255, 120, 60, 0.10), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(0, 80, 255, 0.08), transparent 55%)'
+          // ✅ halo un peu plus présent (premium, moins fade) — safe
+          'radial-gradient(1200px 600px at 80% 10%, rgba(255, 120, 60, 0.14), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(0, 80, 255, 0.10), transparent 55%)'
       }}
     >
       {/* HERO */}
