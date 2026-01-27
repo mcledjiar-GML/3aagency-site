@@ -109,7 +109,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* TRUST TRIO (ALT pour mieux séparer visuellement) */}
+      {/* TRUST TRIO (ALT) */}
       <Section id="trust" className="section section--alt">
         <Container>
           <h2 className="h2">{t('trust.title')}</h2>
@@ -209,7 +209,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SECURITY (section alternée = rythme “produit”) */}
+      {/* SECURITY (ALT subtil) */}
       <Section id="security" className="section--alt">
         <Container>
           <h2 className="h2">{t('security.title')}</h2>
@@ -234,14 +234,164 @@ export default async function Page({
 
           <div style={{height: 18}} />
 
-          <div className="card card--panel">
-            <p className="card-title">{t('security.auditTitle')}</p>
-            <p className="card-text">{t('security.auditBody')}</p>
+          {/* ✅ mini panel UI (au lieu d’une card marketing classique) */}
+          <div className="panel">
+            <div className="panel-header">
+              <div className="panel-heading">
+                <div className="panel-title">{t('security.auditTitle')}</div>
+                <div className="panel-sub">{t('process.panelSub')}</div>
+              </div>
+              <span className="status-pill">AVAILABLE</span>
+            </div>
+
+            <div className="panel-body">
+              <div className="log">
+                <div className="log-line">
+                  <span className="log-time">10:02:11</span>
+                  <span className="log-action">{t('security.auditBody')}</span>
+                </div>
+                <div className="log-line">
+                  <span className="log-time">10:02:14</span>
+                  <span className="log-action">{t('process.log3')}</span>
+                </div>
+                <div className="log-line">
+                  <span className="log-time">10:02:30</span>
+                  <span className="log-action">{t('process.log5')}</span>
+                </div>
+              </div>
+
+              <div className="wireframe" aria-hidden="true">
+                <svg viewBox="0 0 640 92" role="img" focusable="false">
+                  <defs>
+                    <marker
+                      id="arrow"
+                      markerWidth="10"
+                      markerHeight="10"
+                      refX="6"
+                      refY="3"
+                      orient="auto"
+                    >
+                      <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+                    </marker>
+                  </defs>
+
+                  <rect
+                    x="12"
+                    y="18"
+                    width="130"
+                    height="44"
+                    rx="10"
+                    fill="none"
+                    stroke="currentColor"
+                    opacity="0.85"
+                  />
+                  <rect
+                    x="178"
+                    y="18"
+                    width="130"
+                    height="44"
+                    rx="10"
+                    fill="none"
+                    stroke="currentColor"
+                    opacity="0.85"
+                  />
+                  <rect
+                    x="344"
+                    y="18"
+                    width="130"
+                    height="44"
+                    rx="10"
+                    fill="none"
+                    stroke="currentColor"
+                    opacity="0.85"
+                  />
+                  <rect
+                    x="510"
+                    y="18"
+                    width="118"
+                    height="44"
+                    rx="10"
+                    fill="none"
+                    stroke="currentColor"
+                    opacity="0.85"
+                  />
+
+                  <line
+                    x1="142"
+                    y1="40"
+                    x2="178"
+                    y2="40"
+                    stroke="currentColor"
+                    opacity="0.85"
+                    markerEnd="url(#arrow)"
+                  />
+                  <line
+                    x1="308"
+                    y1="40"
+                    x2="344"
+                    y2="40"
+                    stroke="currentColor"
+                    opacity="0.85"
+                    markerEnd="url(#arrow)"
+                  />
+                  <line
+                    x1="474"
+                    y1="40"
+                    x2="510"
+                    y2="40"
+                    stroke="currentColor"
+                    opacity="0.85"
+                    markerEnd="url(#arrow)"
+                  />
+
+                  <text
+                    x="77"
+                    y="46"
+                    textAnchor="middle"
+                    fontSize="14"
+                    fill="currentColor"
+                    opacity="0.92"
+                  >
+                    {t('process.wireInput')}
+                  </text>
+                  <text
+                    x="243"
+                    y="46"
+                    textAnchor="middle"
+                    fontSize="14"
+                    fill="currentColor"
+                    opacity="0.92"
+                  >
+                    {t('process.wireAgent')}
+                  </text>
+                  <text
+                    x="409"
+                    y="46"
+                    textAnchor="middle"
+                    fontSize="14"
+                    fill="currentColor"
+                    opacity="0.92"
+                  >
+                    {t('process.wireApproval')}
+                  </text>
+                  <text
+                    x="569"
+                    y="46"
+                    textAnchor="middle"
+                    fontSize="14"
+                    fill="currentColor"
+                    opacity="0.92"
+                  >
+                    {t('process.wireOutput')}
+                  </text>
+                </svg>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* PROCESS 3A CERTIFIED (variation de layout principale) */}
+      {/* PROCESS 3A CERTIFIED */}
       <Section id="process" className="section section--alt">
         <Container>
           <div className="process-header">
@@ -250,7 +400,6 @@ export default async function Page({
           </div>
 
           <div className="process-layout">
-            {/* Colonne gauche : timeline */}
             <ol className="timeline">
               <li className="timeline-step">
                 <div className="step-marker" aria-hidden="true">
@@ -293,7 +442,6 @@ export default async function Page({
               </li>
             </ol>
 
-            {/* Colonne droite : panel UI audit/approvals */}
             <div className="panel">
               <div className="panel-header">
                 <div className="panel-heading">
@@ -335,7 +483,7 @@ export default async function Page({
                   <svg viewBox="0 0 640 92" role="img" focusable="false">
                     <defs>
                       <marker
-                        id="arrow"
+                        id="arrow2"
                         markerWidth="10"
                         markerHeight="10"
                         refX="6"
@@ -394,7 +542,7 @@ export default async function Page({
                       y2="40"
                       stroke="currentColor"
                       opacity="0.85"
-                      markerEnd="url(#arrow)"
+                      markerEnd="url(#arrow2)"
                     />
                     <line
                       x1="308"
@@ -403,7 +551,7 @@ export default async function Page({
                       y2="40"
                       stroke="currentColor"
                       opacity="0.85"
-                      markerEnd="url(#arrow)"
+                      markerEnd="url(#arrow2)"
                     />
                     <line
                       x1="474"
@@ -412,7 +560,7 @@ export default async function Page({
                       y2="40"
                       stroke="currentColor"
                       opacity="0.85"
-                      markerEnd="url(#arrow)"
+                      markerEnd="url(#arrow2)"
                     />
 
                     <text
@@ -490,7 +638,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* FAQ (ALT pour mieux séparer visuellement) */}
+      {/* FAQ (ALT) */}
       <Section id="faq" className="section section--alt">
         <Container>
           <h2 className="h2">{t('faq.title')}</h2>
