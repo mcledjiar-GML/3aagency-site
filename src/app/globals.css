@@ -1,4 +1,4 @@
-/* ===== Base / Reset ===== */
+﻿/* ===== Base / Reset ===== */
 *,
 *::before,
 *::after {
@@ -13,8 +13,8 @@ body {
 
 :root {
   /* Layout */
-  --container: 1120px;
-  --gutter: 24px;
+  --container: 1200px; /* premium desktop */
+  --gutter: clamp(16px, 2.2vw, 32px); /* ✅ marges responsive (mobile -> desktop) */
   --radius: 16px;
 
   /* Typography */
@@ -28,38 +28,55 @@ body {
   /* Spacing */
   --section-y: clamp(56px, 7vw, 96px);
 
-  /* Colors (light) */
-  --bg: #ffffff;
+  /* Colors (clair premium) */
+  --canvas: #f8fafc; /* fond global cassé */
+  --section: #f1f5f9; /* alternance section */
+  --surface: #ffffff; /* cartes */
+  --surface-2: #f8fafc; /* encadrés légers */
+
   --fg: #0b1220;
   --muted: #5b6b85;
-  --border: rgba(15, 23, 42, 0.12);
 
-  /* Brand accent (orange/rouge de ton logo) */
+  --border: rgba(15, 23, 42, 0.14);
+  --border-soft: rgba(15, 23, 42, 0.1);
+
+  /* Brand accent (orange CTA conservé) */
   --accent: #ff4d1a;
   --accent-2: #ff7a45;
 
-  /* Shadow */
+  /* Shadows (plus légères = plus premium) */
   --shadow: 0 18px 60px rgba(2, 8, 23, 0.08);
   --shadow-soft: 0 10px 30px rgba(2, 8, 23, 0.08);
+  --shadow-sm: 0 1px 2px rgba(2, 8, 23, 0.06);
+  --shadow-md: 0 12px 32px rgba(2, 8, 23, 0.1);
 
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #070a12;
+    --canvas: #070a12;
+    --section: rgba(255, 255, 255, 0.04);
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-2: rgba(255, 255, 255, 0.03);
+
     --fg: #eef2ff;
     --muted: #a6b3cf;
+
     --border: rgba(255, 255, 255, 0.14);
+    --border-soft: rgba(255, 255, 255, 0.12);
+
     --shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
     --shadow-soft: 0 12px 34px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22);
+    --shadow-md: 0 18px 46px rgba(0, 0, 0, 0.42);
   }
 }
 
 body {
   font-family: var(--font-sans);
   font-size: var(--p);
-  background: var(--bg);
+  background: var(--canvas);
   color: var(--fg);
   line-height: 1.55;
 }
@@ -100,6 +117,11 @@ img {
   color: var(--muted);
 }
 
+/* Optional: section alternance (si tu l’utilises via className="section section-alt") */
+.section-alt {
+  background: var(--section);
+}
+
 /* ===== Components (simple design system) ===== */
 .badge {
   display: inline-flex;
@@ -107,9 +129,9 @@ img {
   gap: 10px;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--bg) 88%, var(--fg) 12%);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  background: color-mix(in oklab, var(--surface) 94%, var(--fg) 6%);
+  box-shadow: var(--shadow-sm);
   font-weight: 600;
   font-size: 13px;
 }
@@ -170,28 +192,31 @@ img {
 }
 
 .btn-secondary {
-  background: transparent;
+  background: var(--surface);
   color: var(--fg);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-soft);
 }
 
 .grid-3 {
   display: grid;
-  gap: 14px;
+  gap: 16px;
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 860px) {
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
   }
 }
 
 .card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius);
   padding: 18px;
-  background: color-mix(in oklab, var(--bg) 92%, var(--fg) 8%);
-  box-shadow: var(--shadow-soft);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .card-title {
@@ -207,5 +232,118 @@ img {
 
 /* A11y: stronger contrast for body text inside cards */
 .card .card-text {
-  color: color-mix(in oklab, var(--fg) 72%, var(--muted) 28%);
+  color: color-mix(in oklab, var(--fg) 76%, var(--muted) 24%);
+}
+
+/* ===== Legal pages: premium reading layout ===== */
+.legal-wrap {
+  padding: 40px 0;
+}
+
+.legal-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.legal-surface {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(2, 8, 23, 0.08);
+  padding: 28px;
+}
+
+@media (min-width: 860px) {
+  .legal-surface {
+    padding: 40px;
+  }
+}
+
+.legal-header {
+  margin-bottom: 28px;
+}
+
+.legal-title {
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.legal-desc {
+  margin: 10px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.legal-meta {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: color-mix(in oklab, var(--fg) 60%, var(--muted) 40%);
+}
+
+.legal-sections {
+  display: grid;
+  gap: 24px;
+}
+
+.legal-section h2 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.legal-section p {
+  margin: 0 0 10px;
+  line-height: 1.75;
+  color: color-mix(in oklab, var(--fg) 85%, var(--muted) 15%);
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .legal-surface {
+    background: color-mix(in oklab, var(--canvas) 82%, #ffffff 18%);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+/* ===== Premium micro-interactions (safe) ===== */
+.card {
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 45%, #ffffff 55%);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .btn {
+    transition: none !important;
+  }
+
+  .card:hover,
+  .btn:hover {
+    transform: none !important;
+  }
 }

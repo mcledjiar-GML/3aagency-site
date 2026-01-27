@@ -116,7 +116,13 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-1">{children}</div>
+
+        {/* ✅ Container marketing global (desktop premium, padding safe) */}
+        <div className="flex-1">
+          <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6 lg:px-8">
+            {children}
+          </div>
+        </div>
 
         <div className="border-t border-black/10">
           <div className="mx-auto w-full max-w-6xl px-6 py-8">
