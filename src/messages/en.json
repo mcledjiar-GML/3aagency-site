@@ -17,14 +17,27 @@
         "p3Body": "Approval steps + audit log: you stay in control."
       }
     },
+
+    "productStrip": {
+      "title": "Audit-ready by design",
+      "chips": {
+        "approvals": "Approvals (human-in-the-loop)",
+        "auditLog": "Audit log",
+        "privateRag": "Private RAG",
+        "euOnPrem": "EU / on-prem",
+        "n8n": "n8n",
+        "runIds": "Run IDs"
+      }
+    },
+
     "trust": {
       "title": "Proof you can trust",
-      "subtitle": "A trust trio: engineering rigor, legal validation, real‑world testing.",
-      "card1Title": "High‑precision engineering",
-      "card1Body": "“Zero‑error” culture from industry & aviation: robust execution and reliability.",
+      "subtitle": "A trust trio: engineering rigor, legal validation, real-world testing.",
+      "card1Title": "High-precision engineering",
+      "card1Body": "“Zero-error” culture from industry & aviation: robust execution and reliability.",
       "card2Title": "Legal validation",
       "card2Body": "Workflows designed with legal constraints in mind, aligned with EU standards.",
-      "card3Title": "Field‑tested",
+      "card3Title": "Field-tested",
       "card3Body": "Proof of concept in real conditions: refine with feedback before scaling."
     },
     "solutions": {
@@ -34,16 +47,16 @@
       "s1Body": "Auto-sort and rename documents (contracts, invoices, files) + routing + traceability.",
       "s2Title": "Secure drafting agent",
       "s2Body": "Generate compliant documents with approval steps and audit log (human approval required).",
-      "s3Title": "AI Time‑Tracker",
+      "s3Title": "AI Time-Tracker",
       "s3Body": "Capture “invisible” billable work and produce reliable reporting.",
       "noteTitle": "Important",
-      "noteBody": "Our agents are human‑in‑the‑loop: AI assists, your team validates. Reliability and compliance first."
+      "noteBody": "Our agents are human-in-the-loop: AI assists, your team validates. Reliability and compliance first."
     },
     "usecases": {
-      "title": "High‑ROI use cases",
+      "title": "High-ROI use cases",
       "subtitle": "We can automate more than 3 flows. Here are the most profitable across your target departments.",
-      "u1Title": "Follow‑ups & collection",
-      "u1Body": "Emails + follow‑up + CRM, with scenarios and proof of outreach.",
+      "u1Title": "Follow-ups & collection",
+      "u1Body": "Emails + follow-up + CRM, with scenarios and proof of outreach.",
       "u2Title": "Document analysis",
       "u2Body": "Contracts, invoices, evidence: extraction, summaries, semantic search (private RAG).",
       "u3Title": "Legal file preparation",
@@ -58,8 +71,8 @@
     "security": {
       "title": "Security & sovereignty",
       "subtitle": "What we can guarantee (and document): EU-first, confidentiality, auditability.",
-      "s1Title": "EU data (or on‑prem)",
-      "s1Body": "Processing and storage in the EU (e.g., Hetzner Germany) or on‑prem deployment if required.",
+      "s1Title": "EU data (or on-prem)",
+      "s1Body": "Processing and storage in the EU (e.g., Hetzner Germany) or on-prem deployment if required.",
       "s2Title": "Never used for training",
       "s2Body": "Customer data is never used to train public models.",
       "s3Title": "Encryption",
@@ -69,21 +82,35 @@
     },
     "process": {
       "title": "The “3A Certified” process",
-      "subtitle": "4 steps: robust, tested, result‑driven.",
-      "p1Title": "1) High‑precision design",
+      "subtitle": "4 steps: robust, tested, result-driven.",
+      "p1Title": "1) High-precision design",
       "p1Body": "Architecture built by our engineers for stability and robustness.",
       "p2Title": "2) Legal check & validation",
-      "p2Body": "Pre‑validation with EU constraints and requirements in mind.",
+      "p2Body": "Pre-validation with EU constraints and requirements in mind.",
       "p3Title": "3) Field beta test",
       "p3Body": "Proof of Concept and refinement with real team feedback.",
       "p4Title": "4) Deployment & continuous support",
-      "p4Body": "Go‑live + continuous improvement: we don’t disappear after delivery."
+      "p4Body": "Go-live + continuous improvement: we don’t disappear after delivery.",
+
+      "panelTitle": "Audit log (client)",
+      "panelSub": "Read-only • approvals recorded",
+      "panelStatus": "RUN: OK",
+      "log1": "Input received — policy check passed",
+      "log2": "Agent proposed draft response",
+      "log3": "Approval requested (Legal)",
+      "log4": "Approved by reviewer — changes: 2",
+      "log5": "Output delivered — audit entry sealed",
+      "log6": "Run archived — retention policy applied",
+      "wireInput": "Input",
+      "wireAgent": "Agent",
+      "wireApproval": "Approval",
+      "wireOutput": "Output"
     },
     "founders": {
       "title": "The founding duo",
       "subtitle": "A rare mix: industrial execution + scientific rigor.",
       "f1Title": "Mohamed Ledjiar — CEO",
-      "f1Body": "Electrotechnics/automation, management expertise. 30 years in industry & aviation (“zero‑error” culture).",
+      "f1Body": "Electrotechnics/automation, management expertise. 30 years in industry & aviation (“zero-error” culture).",
       "f2Title": "Amine Chabane — CTO",
       "f2Body": "PhD Physics (Uni Frankfurt) & quantum computing. Complex systems and advanced engineering specialist."
     },
@@ -91,7 +118,7 @@
       "title": "FAQ",
       "subtitle": "Quick answers before you book.",
       "q1Title": "Do my data leave the EU?",
-      "q1Body": "No. EU-first (DE/FR) or on‑prem if required.",
+      "q1Body": "No. EU-first (DE/FR) or on-prem if required.",
       "q2Title": "Any hidden fees?",
       "q2Body": "No. Setup, monthly and (if relevant) consumption are explicit.",
       "q3Title": "What about AI hallucinations?",

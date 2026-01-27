@@ -21,7 +21,6 @@ export default async function Page({
     notFound();
   }
 
-  // (Optionnel mais recommandé pour la cohérence / static rendering)
   setRequestLocale(locale);
 
   const t = await getTranslations({locale, namespace: 'Landing'});
@@ -31,7 +30,6 @@ export default async function Page({
     <main
       style={{
         background:
-          // ✅ halo un peu plus présent (premium, moins fade) — safe
           'radial-gradient(1200px 600px at 80% 10%, rgba(255, 120, 60, 0.14), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(0, 80, 255, 0.10), transparent 55%)'
       }}
     >
@@ -72,6 +70,40 @@ export default async function Page({
             <div className="card">
               <p className="card-title">{t('hero.promises.p3Title')}</p>
               <p className="card-text">{t('hero.promises.p3Body')}</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* PRODUCT STRIP (signal produit) */}
+      <Section className="section">
+        <Container>
+          <div className="product-strip">
+            <div className="product-strip-title">{t('productStrip.title')}</div>
+
+            <div
+              className="chip-row"
+              role="list"
+              aria-label={t('productStrip.title')}
+            >
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.approvals')}
+              </span>
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.auditLog')}
+              </span>
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.privateRag')}
+              </span>
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.euOnPrem')}
+              </span>
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.n8n')}
+              </span>
+              <span className="chip" role="listitem">
+                {t('productStrip.chips.runIds')}
+              </span>
             </div>
           </div>
         </Container>
@@ -127,7 +159,7 @@ export default async function Page({
 
           <div style={{height: 18}} />
 
-          <div className="card">
+          <div className="card card--panel">
             <p className="card-title">{t('solutions.noteTitle')}</p>
             <p className="card-text">{t('solutions.noteBody')}</p>
           </div>
@@ -177,8 +209,8 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SECURITY */}
-      <Section id="security">
+      {/* SECURITY (section alternée = rythme “produit”) */}
+      <Section id="security" className="section--alt">
         <Container>
           <h2 className="h2">{t('security.title')}</h2>
           <p className="lead">{t('security.subtitle')}</p>
@@ -202,43 +234,230 @@ export default async function Page({
 
           <div style={{height: 18}} />
 
-          <div className="card">
+          <div className="card card--panel">
             <p className="card-title">{t('security.auditTitle')}</p>
             <p className="card-text">{t('security.auditBody')}</p>
           </div>
         </Container>
       </Section>
 
-      {/* PROCESS 3A CERTIFIED */}
-      <Section id="process">
+      {/* PROCESS 3A CERTIFIED (variation de layout principale) */}
+      <Section id="process" className="section section--alt">
         <Container>
-          <h2 className="h2">{t('process.title')}</h2>
-          <p className="lead">{t('process.subtitle')}</p>
+          <div className="process-header">
+            <h2 className="h2">{t('process.title')}</h2>
+            <p className="lead">{t('process.subtitle')}</p>
+          </div>
 
-          <div style={{height: 16}} />
+          <div className="process-layout">
+            {/* Colonne gauche : timeline */}
+            <ol className="timeline">
+              <li className="timeline-step">
+                <div className="step-marker" aria-hidden="true">
+                  <span className="step-badge">1</span>
+                </div>
+                <div className="step-content">
+                  <h3 className="step-title">{t('process.p1Title')}</h3>
+                  <p className="step-text">{t('process.p1Body')}</p>
+                </div>
+              </li>
 
-          <div
-            style={{
-              display: 'grid',
-              gap: 14,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))'
-            }}
-          >
-            <div className="card">
-              <p className="card-title">{t('process.p1Title')}</p>
-              <p className="card-text">{t('process.p1Body')}</p>
-            </div>
-            <div className="card">
-              <p className="card-title">{t('process.p2Title')}</p>
-              <p className="card-text">{t('process.p2Body')}</p>
-            </div>
-            <div className="card">
-              <p className="card-title">{t('process.p3Title')}</p>
-              <p className="card-text">{t('process.p3Body')}</p>
-            </div>
-            <div className="card">
-              <p className="card-title">{t('process.p4Title')}</p>
-              <p className="card-text">{t('process.p4Body')}</p>
+              <li className="timeline-step">
+                <div className="step-marker" aria-hidden="true">
+                  <span className="step-badge">2</span>
+                </div>
+                <div className="step-content">
+                  <h3 className="step-title">{t('process.p2Title')}</h3>
+                  <p className="step-text">{t('process.p2Body')}</p>
+                </div>
+              </li>
+
+              <li className="timeline-step">
+                <div className="step-marker" aria-hidden="true">
+                  <span className="step-badge">3</span>
+                </div>
+                <div className="step-content">
+                  <h3 className="step-title">{t('process.p3Title')}</h3>
+                  <p className="step-text">{t('process.p3Body')}</p>
+                </div>
+              </li>
+
+              <li className="timeline-step">
+                <div className="step-marker" aria-hidden="true">
+                  <span className="step-badge">4</span>
+                </div>
+                <div className="step-content">
+                  <h3 className="step-title">{t('process.p4Title')}</h3>
+                  <p className="step-text">{t('process.p4Body')}</p>
+                </div>
+              </li>
+            </ol>
+
+            {/* Colonne droite : panel UI audit/approvals */}
+            <div className="panel">
+              <div className="panel-header">
+                <div className="panel-heading">
+                  <div className="panel-title">{t('process.panelTitle')}</div>
+                  <div className="panel-sub">{t('process.panelSub')}</div>
+                </div>
+                <span className="status-pill">{t('process.panelStatus')}</span>
+              </div>
+
+              <div className="panel-body">
+                <div className="log">
+                  <div className="log-line">
+                    <span className="log-time">09:18:03</span>
+                    <span className="log-action">{t('process.log1')}</span>
+                  </div>
+                  <div className="log-line">
+                    <span className="log-time">09:18:05</span>
+                    <span className="log-action">{t('process.log2')}</span>
+                  </div>
+                  <div className="log-line">
+                    <span className="log-time">09:18:11</span>
+                    <span className="log-action">{t('process.log3')}</span>
+                  </div>
+                  <div className="log-line">
+                    <span className="log-time">09:18:42</span>
+                    <span className="log-action">{t('process.log4')}</span>
+                  </div>
+                  <div className="log-line">
+                    <span className="log-time">09:18:44</span>
+                    <span className="log-action">{t('process.log5')}</span>
+                  </div>
+                  <div className="log-line">
+                    <span className="log-time">09:18:45</span>
+                    <span className="log-action">{t('process.log6')}</span>
+                  </div>
+                </div>
+
+                <div className="wireframe" aria-hidden="true">
+                  <svg viewBox="0 0 640 92" role="img" focusable="false">
+                    <defs>
+                      <marker
+                        id="arrow"
+                        markerWidth="10"
+                        markerHeight="10"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+                      </marker>
+                    </defs>
+
+                    <rect
+                      x="12"
+                      y="18"
+                      width="130"
+                      height="44"
+                      rx="10"
+                      fill="none"
+                      stroke="currentColor"
+                      opacity="0.85"
+                    />
+                    <rect
+                      x="178"
+                      y="18"
+                      width="130"
+                      height="44"
+                      rx="10"
+                      fill="none"
+                      stroke="currentColor"
+                      opacity="0.85"
+                    />
+                    <rect
+                      x="344"
+                      y="18"
+                      width="130"
+                      height="44"
+                      rx="10"
+                      fill="none"
+                      stroke="currentColor"
+                      opacity="0.85"
+                    />
+                    <rect
+                      x="510"
+                      y="18"
+                      width="118"
+                      height="44"
+                      rx="10"
+                      fill="none"
+                      stroke="currentColor"
+                      opacity="0.85"
+                    />
+
+                    <line
+                      x1="142"
+                      y1="40"
+                      x2="178"
+                      y2="40"
+                      stroke="currentColor"
+                      opacity="0.85"
+                      markerEnd="url(#arrow)"
+                    />
+                    <line
+                      x1="308"
+                      y1="40"
+                      x2="344"
+                      y2="40"
+                      stroke="currentColor"
+                      opacity="0.85"
+                      markerEnd="url(#arrow)"
+                    />
+                    <line
+                      x1="474"
+                      y1="40"
+                      x2="510"
+                      y2="40"
+                      stroke="currentColor"
+                      opacity="0.85"
+                      markerEnd="url(#arrow)"
+                    />
+
+                    <text
+                      x="77"
+                      y="46"
+                      textAnchor="middle"
+                      fontSize="14"
+                      fill="currentColor"
+                      opacity="0.92"
+                    >
+                      {t('process.wireInput')}
+                    </text>
+                    <text
+                      x="243"
+                      y="46"
+                      textAnchor="middle"
+                      fontSize="14"
+                      fill="currentColor"
+                      opacity="0.92"
+                    >
+                      {t('process.wireAgent')}
+                    </text>
+                    <text
+                      x="409"
+                      y="46"
+                      textAnchor="middle"
+                      fontSize="14"
+                      fill="currentColor"
+                      opacity="0.92"
+                    >
+                      {t('process.wireApproval')}
+                    </text>
+                    <text
+                      x="569"
+                      y="46"
+                      textAnchor="middle"
+                      fontSize="14"
+                      fill="currentColor"
+                      opacity="0.92"
+                    >
+                      {t('process.wireOutput')}
+                    </text>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

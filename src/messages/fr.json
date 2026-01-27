@@ -17,6 +17,19 @@
         "p3Body": "Étapes de validation + journal d’audit : vous gardez la main."
       }
     },
+
+    "productStrip": {
+      "title": "Méthode + conformité intégrées",
+      "chips": {
+        "approvals": "Approvals (validation humaine)",
+        "auditLog": "Journal d’audit",
+        "privateRag": "RAG privé",
+        "euOnPrem": "UE / on-prem",
+        "n8n": "n8n",
+        "runIds": "Run IDs"
+      }
+    },
+
     "trust": {
       "title": "Des preuves auxquelles vous pouvez faire confiance",
       "subtitle": "Un trio de confiance : rigueur d’ingénierie, validation juridique, tests terrain.",
@@ -34,10 +47,10 @@
       "s1Body": "Classer et renommer automatiquement les documents (contrats, factures, dossiers) + routage + traçabilité.",
       "s2Title": "Agent de rédaction sécurisé",
       "s2Body": "Générer des documents conformes avec étapes de validation et journal d’audit (approbation humaine requise).",
-      "s3Title": "Time‑Tracker IA",
+      "s3Title": "Time-Tracker IA",
       "s3Body": "Capturer le travail facturable « invisible » et produire un reporting fiable.",
       "noteTitle": "Important",
-      "noteBody": "Nos agents sont human‑in‑the‑loop : l’IA assiste, votre équipe valide. Fiabilité et conformité d’abord."
+      "noteBody": "Nos agents sont human-in-the-loop : l’IA assiste, votre équipe valide. Fiabilité et conformité d’abord."
     },
     "usecases": {
       "title": "Cas d’usage à fort ROI",
@@ -58,8 +71,8 @@
     "security": {
       "title": "Sécurité & souveraineté",
       "subtitle": "Ce que nous pouvons garantir (et documenter) : priorité UE, confidentialité, auditabilité.",
-      "s1Title": "Données UE (ou on‑prem)",
-      "s1Body": "Traitement et stockage en UE (ex. Hetzner Allemagne) ou déploiement on‑prem si nécessaire.",
+      "s1Title": "Données UE (ou on-prem)",
+      "s1Body": "Traitement et stockage en UE (ex. Hetzner Allemagne) ou déploiement on-prem si nécessaire.",
       "s2Title": "Jamais utilisées pour l’entraînement",
       "s2Body": "Les données clients ne sont jamais utilisées pour entraîner des modèles publics.",
       "s3Title": "Chiffrement",
@@ -73,11 +86,25 @@
       "p1Title": "1) Design haute précision",
       "p1Body": "Architecture conçue par nos ingénieurs pour la stabilité et la robustesse.",
       "p2Title": "2) Check & validation juridique",
-      "p2Body": "Pré‑validation en intégrant les contraintes et exigences UE.",
+      "p2Body": "Pré-validation en intégrant les contraintes et exigences UE.",
       "p3Title": "3) Beta test terrain",
       "p3Body": "Proof of Concept et affinement avec retours d’équipe en conditions réelles.",
       "p4Title": "4) Déploiement & support continu",
-      "p4Body": "Go‑live + amélioration continue : on ne disparaît pas après livraison."
+      "p4Body": "Go-live + amélioration continue : on ne disparaît pas après livraison.",
+
+      "panelTitle": "Journal d’audit (client)",
+      "panelSub": "Lecture seule • validations tracées",
+      "panelStatus": "RUN : OK",
+      "log1": "Entrée reçue — contrôle de règles OK",
+      "log2": "Agent : proposition générée",
+      "log3": "Validation demandée (Juridique)",
+      "log4": "Validé — modifications : 2",
+      "log5": "Sortie livrée — entrée scellée",
+      "log6": "Run archivé — rétention appliquée",
+      "wireInput": "Entrée",
+      "wireAgent": "Agent",
+      "wireApproval": "Validation",
+      "wireOutput": "Sortie"
     },
     "founders": {
       "title": "Le duo fondateur",
@@ -90,13 +117,13 @@
     "faq": {
       "title": "FAQ",
       "subtitle": "Réponses rapides avant de réserver.",
-      "q1Title": "Mes données sortent‑elles de l’UE ?",
-      "q1Body": "Non. Priorité UE (DE/FR) ou on‑prem si requis.",
+      "q1Title": "Mes données sortent-elles de l’UE ?",
+      "q1Body": "Non. Priorité UE (DE/FR) ou on-prem si requis.",
       "q2Title": "Des frais cachés ?",
       "q2Body": "Non. Setup, mensuel et (si pertinent) consommation sont explicites.",
       "q3Title": "Et les hallucinations IA ?",
-      "q3Body": "Étapes de validation (human‑in‑the‑loop) + journal d’audit. L’IA assiste, les humains décident.",
-      "q4Title": "Pouvez‑vous intégrer nos outils ?",
+      "q3Body": "Étapes de validation (human-in-the-loop) + journal d’audit. L’IA assiste, les humains décident.",
+      "q4Title": "Pouvez-vous intégrer nos outils ?",
       "q4Body": "Oui. Connexion de votre stack via intégrations / APIs."
     },
     "finalCta": {

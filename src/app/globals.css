@@ -29,25 +29,25 @@ body {
   --section-y: clamp(56px, 7vw, 96px);
 
   /* Colors (clair premium) */
-  --canvas: #f8fafc; /* fond global cassé */
-  --section: #f1f5f9; /* alternance section */
-  --surface: #ffffff; /* cartes */
-  --surface-2: #f8fafc; /* encadrés légers */
+  --canvas: #f6f7fb; /* fond global cassé (pas blanc pur) */
+  --section: #eef2f8; /* alternance section (subtil, cabinet) */
+  --surface: #ffffff; /* panels */
+  --surface-2: #f5f7ff; /* hover / secondary panels (différent du canvas) */
 
   --fg: #0b1220;
-  --muted: #5b6b85;
+  --muted: #4a5a72; /* cabinet, lisible */
 
-  --border: rgba(15, 23, 42, 0.14);
+  --border: rgba(15, 23, 42, 0.16);
   --border-soft: rgba(15, 23, 42, 0.1);
 
   /* Brand accent (orange CTA conservé) */
   --accent: #ff4d1a;
   --accent-2: #ff7a45;
 
-  /* Shadows (plus légères = plus premium) */
+  /* Shadows */
   --shadow: 0 18px 60px rgba(2, 8, 23, 0.08);
   --shadow-soft: 0 10px 30px rgba(2, 8, 23, 0.08);
-  --shadow-sm: 0 1px 2px rgba(2, 8, 23, 0.06);
+  --shadow-sm: 0 1px 2px rgba(2, 8, 23, 0.06), 0 1px 1px rgba(2, 8, 23, 0.04);
   --shadow-md: 0 12px 32px rgba(2, 8, 23, 0.1);
 
   color-scheme: light dark;
@@ -55,15 +55,16 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --canvas: #070a12;
-    --section: rgba(255, 255, 255, 0.04);
-    --surface: rgba(255, 255, 255, 0.06);
-    --surface-2: rgba(255, 255, 255, 0.03);
+    /* Dark = variante premium (même layout, surfaces/ombres ajustées) */
+    --canvas: #0b1220;
+    --section: #0b1428;
+    --surface: #0f1a34;
+    --surface-2: #121f3f;
 
     --fg: #eef2ff;
-    --muted: #a6b3cf;
+    --muted: #a9b7d0;
 
-    --border: rgba(255, 255, 255, 0.14);
+    --border: rgba(255, 255, 255, 0.16);
     --border-soft: rgba(255, 255, 255, 0.12);
 
     --shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
@@ -117,8 +118,11 @@ img {
   color: var(--muted);
 }
 
-/* Optional: section alternance (si tu l’utilises via className="section section-alt") */
+/* Alternance sections (alias compatibles) */
 .section-alt {
+  background: var(--section);
+}
+.section--alt {
   background: var(--section);
 }
 
@@ -177,7 +181,8 @@ img {
   font-size: 14px;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease,
+    background-color 120ms ease, border-color 120ms ease;
 }
 
 .btn:hover {
@@ -196,6 +201,25 @@ img {
   color: var(--fg);
   box-shadow: var(--shadow-sm);
   border-color: var(--border-soft);
+  position: relative;
+}
+
+/* CTA secondaire : flèche via CSS (pas dans i18n) */
+.btn-secondary::after {
+  content: " \2192"; /* → */
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 180ms ease;
+}
+
+.btn-secondary:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:hover::after {
+  transform: translateX(2px);
 }
 
 .grid-3 {
@@ -233,6 +257,242 @@ img {
 /* A11y: stronger contrast for body text inside cards */
 .card .card-text {
   color: color-mix(in oklab, var(--fg) 76%, var(--muted) 24%);
+}
+
+/* ===== Product strip (chips) ===== */
+.product-strip {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.product-strip-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 10px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* ===== Process layout (2 colonnes : timeline + panel UI) ===== */
+.process-header {
+  margin-bottom: 18px;
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .process-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Timeline */
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.step-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 1px;
+}
+
+/* ligne plus visible (light + dark) */
+.step-marker::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% + 14px);
+  background: color-mix(in oklab, var(--border) 65%, transparent 35%);
+  border-radius: 999px;
+}
+
+.timeline-step:last-child .step-marker::after {
+  display: none;
+}
+
+/* badges “UI” */
+.step-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--surface) 92%, var(--accent) 8%);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--accent) 30%);
+  box-shadow: var(--shadow-sm);
+  color: var(--fg);
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ Dark polish : ligne + badges plus premium, moins “orangé” */
+@media (prefers-color-scheme: dark) {
+  .step-marker::after {
+    background: color-mix(in oklab, var(--border) 85%, transparent 15%);
+  }
+
+  .step-badge {
+    background: color-mix(in oklab, var(--surface) 92%, #ffffff 8%);
+    border: 1px solid color-mix(in oklab, var(--border) 90%, #ffffff 10%);
+  }
+}
+
+.step-title {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.step-text {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Panel UI */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-md);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.panel-heading {
+  display: grid;
+  gap: 2px;
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.panel-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-2);
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+.panel-body {
+  padding: 12px 14px 14px 14px;
+}
+
+.log {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--fg);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--surface-2);
+  padding: 8px 10px;
+}
+
+.log-line {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.log-line:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: var(--muted);
+}
+
+.log-action {
+  color: var(--fg);
+}
+
+/* Micro wireframe */
+.wireframe {
+  margin-top: 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 10px;
+  color: var(--muted);
+}
+
+.wireframe svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ===== Legal pages: premium reading layout ===== */
@@ -319,13 +579,15 @@ img {
 
 /* ===== Premium micro-interactions (safe) ===== */
 .card {
-  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease,
+    background-color 140ms ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(15, 23, 42, 0.18);
+  border-color: var(--border);
+  background: var(--surface-2);
 }
 
 .btn:focus-visible,
@@ -338,7 +600,8 @@ a:focus-visible {
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .btn {
+  .btn,
+  .btn-secondary::after {
     transition: none !important;
   }
 
