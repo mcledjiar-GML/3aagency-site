@@ -64,6 +64,12 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
+
+    // ✅ Google Search Console verification (URL Prefix property)
+    verification: {
+      google: "bkhehgNhu6Xd9F0RpLEi1w7BMAubrNyTU3n",
+    },
+
     alternates: {
       canonical: canonicalPath,
       languages: {
