@@ -76,7 +76,7 @@ export default async function Page({
       </Section>
 
       {/* PRODUCT STRIP */}
-      <Section className="section">
+      <Section className="section section--tight">
         <Container>
           <div className="product-strip">
             <div className="product-strip-title">{t('productStrip.title')}</div>
@@ -110,7 +110,7 @@ export default async function Page({
       </Section>
 
       {/* TRUST */}
-      <Section id="trust" className="section section--alt">
+      <Section id="trust" className="section">
         <Container>
           <h2 className="h2">{t('trust.title')}</h2>
           <p className="lead">{t('trust.subtitle')}</p>
@@ -185,13 +185,7 @@ export default async function Page({
 
           <div style={{height: 16}} />
 
-          <div
-            style={{
-              display: 'grid',
-              gap: 14,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))'
-            }}
-          >
+          <div className="usecases-grid">
             <div className="card">
               <p className="card-title">{t('usecases.u1Title')}</p>
               <p className="card-text">{t('usecases.u1Body')}</p>
@@ -253,7 +247,7 @@ export default async function Page({
       </Section>
 
       {/* PROCESS */}
-      <Section id="process" className="section section--alt">
+      <Section id="process" className="section">
         <Container>
           <div className="process-header">
             <h2 className="h2">{t('process.title')}</h2>
@@ -507,13 +501,7 @@ export default async function Page({
 
           <div style={{height: 16}} />
 
-          <div
-            style={{
-              display: 'grid',
-              gap: 14,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))'
-            }}
-          >
+          <div className="faq-grid">
             <div className="card">
               <p className="card-title">{t('faq.q1Title')}</p>
               <p className="card-text">{t('faq.q1Body')}</p>
@@ -529,6 +517,14 @@ export default async function Page({
             <div className="card">
               <p className="card-title">{t('faq.q4Title')}</p>
               <p className="card-text">{t('faq.q4Body')}</p>
+            </div>
+            <div className="card">
+              <p className="card-title">{t('faq.q5Title')}</p>
+              <p className="card-text">{t('faq.q5Body')}</p>
+            </div>
+            <div className="card">
+              <p className="card-title">{t('faq.q6Title')}</p>
+              <p className="card-text">{t('faq.q6Body')}</p>
             </div>
           </div>
         </Container>

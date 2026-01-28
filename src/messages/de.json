@@ -2,6 +2,9 @@
   "Nav": {
     "cta": "Termin buchen"
   },
+  "Footer": {
+    "tagline": "Deutschland (DACH) • EU-first • Audit-ready"
+  },
   "Landing": {
     "hero": {
       "badge": "Nur EU • Audit-Log • Human-in-the-loop",
@@ -83,13 +86,13 @@
     "process": {
       "title": "„3A Certified“-Prozess",
       "subtitle": "4 Schritte: robust, getestet, ergebnisorientiert.",
-      "p1Title": "1) High-Precision Design",
+      "p1Title": "High-Precision Design",
       "p1Body": "Architektur durch unsere Ingenieure für Stabilität und Robustheit.",
-      "p2Title": "2) Juristischer Check",
+      "p2Title": "Juristischer Check",
       "p2Body": "Vorab-Validierung und EU-Rahmenbedingungen berücksichtigen.",
-      "p3Title": "3) Beta-Test im Betrieb",
+      "p3Title": "Beta-Test im Betrieb",
       "p3Body": "Proof of Concept und Anpassung mit echten Nutzer-Feedbacks.",
-      "p4Title": "4) Deployment & Begleitung",
+      "p4Title": "Deployment & Begleitung",
       "p4Body": "Go-Live + kontinuierliche Verbesserung: wir bleiben an Ihrer Seite.",
 
       "panelTitle": "Audit-Log (Kunde)",
@@ -124,7 +127,11 @@
       "q3Title": "Was ist mit KI-Halluzinationen?",
       "q3Body": "Freigabeschritte (Human-in-the-loop) + Audit-Log. KI assistiert, Menschen entscheiden.",
       "q4Title": "Integriert ihr CRM/ERP/Outlook/Drive?",
-      "q4Body": "Ja. Wir binden bestehende Systeme über Integrationen/APIs an."
+      "q4Body": "Ja. Wir binden bestehende Systeme über Integrationen/APIs an.",
+      "q5Title": "Wie lange dauert der erste Workflow?",
+      "q5Body": "In der Regel 10–30 Tage – je nach Umfang und Integrationen. Wir starten mit einem Pilot-Flow und iterieren dann.",
+      "q6Title": "Welches Budget einplanen?",
+      "q6Body": "Setup + monatliches Abo. Etwaige variable Kosten (LLM, Volumen, Optionen) werden immer vorab transparent gemacht."
     },
     "finalCta": {
       "title": "Erster zertifizierter Agent in 30 Tagen",

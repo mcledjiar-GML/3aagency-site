@@ -2,6 +2,9 @@
   "Nav": {
     "cta": "Book a call"
   },
+  "Footer": {
+    "tagline": "Germany (DACH) • EU-first • Audit-ready"
+  },
   "Landing": {
     "hero": {
       "badge": "EU-first • Audit log • Human-in-the-loop",
@@ -83,13 +86,13 @@
     "process": {
       "title": "The “3A Certified” process",
       "subtitle": "4 steps: robust, tested, result-driven.",
-      "p1Title": "1) High-precision design",
+      "p1Title": "High-precision design",
       "p1Body": "Architecture built by our engineers for stability and robustness.",
-      "p2Title": "2) Legal check & validation",
+      "p2Title": "Legal check & validation",
       "p2Body": "Pre-validation with EU constraints and requirements in mind.",
-      "p3Title": "3) Field beta test",
+      "p3Title": "Field beta test",
       "p3Body": "Proof of Concept and refinement with real team feedback.",
-      "p4Title": "4) Deployment & continuous support",
+      "p4Title": "Deployment & continuous support",
       "p4Body": "Go-live + continuous improvement: we don’t disappear after delivery.",
 
       "panelTitle": "Audit log (client)",
@@ -124,7 +127,11 @@
       "q3Title": "What about AI hallucinations?",
       "q3Body": "Approval steps (human-in-the-loop) + audit log. AI assists, humans decide.",
       "q4Title": "Can you integrate our tools?",
-      "q4Body": "Yes. We connect your stack via integrations/APIs."
+      "q4Body": "Yes. We connect your stack via integrations/APIs.",
+      "q5Title": "How long for a first workflow?",
+      "q5Body": "Typically 10–30 days depending on scope and integrations. We start with one pilot flow, then iterate.",
+      "q6Title": "What budget to plan?",
+      "q6Body": "Setup + monthly subscription. Any variable costs (LLM usage, volumes, options) are always specified upfront."
     },
     "finalCta": {
       "title": "Your first certified agent in 30 days",

@@ -2,6 +2,9 @@
   "Nav": {
     "cta": "Réserver un appel"
   },
+  "Footer": {
+    "tagline": "Allemagne (DACH) • Priorité UE • Prêt pour l'audit"
+  },
   "Landing": {
     "hero": {
       "badge": "Priorité UE • Prêt pour l’audit • Humain dans la boucle",
@@ -83,13 +86,13 @@
     "process": {
       "title": "Le process “3A Certified”",
       "subtitle": "4 étapes : robuste, testé, orienté résultats.",
-      "p1Title": "1) Design haute précision",
+      "p1Title": "Design haute précision",
       "p1Body": "Architecture conçue par nos ingénieurs pour la stabilité et la robustesse.",
-      "p2Title": "2) Check & validation juridique",
+      "p2Title": "Check & validation juridique",
       "p2Body": "Pré-validation en intégrant les contraintes et exigences UE.",
-      "p3Title": "3) Beta test terrain",
-      "p3Body": "Proof of Concept et affinement avec retours d’équipe en conditions réelles.",
-      "p4Title": "4) Déploiement & support continu",
+      "p3Title": "Beta test terrain",
+      "p3Body": "Proof of Concept et affinement avec retours d'équipe en conditions réelles.",
+      "p4Title": "Déploiement & support continu",
       "p4Body": "Go-live + amélioration continue : on ne disparaît pas après livraison.",
 
       "panelTitle": "Journal d’audit (client)",
@@ -117,14 +120,18 @@
     "faq": {
       "title": "FAQ",
       "subtitle": "Réponses rapides avant de réserver.",
-      "q1Title": "Mes données sortent-elles de l’UE ?",
+      "q1Title": "Mes données sortent-elles de l'UE ?",
       "q1Body": "Non. Priorité UE (DE/FR) ou on-prem si requis.",
       "q2Title": "Des frais cachés ?",
       "q2Body": "Non. Setup, mensuel et (si pertinent) consommation sont explicites.",
       "q3Title": "Et les hallucinations IA ?",
-      "q3Body": "Étapes de validation (human-in-the-loop) + journal d’audit. L’IA assiste, les humains décident.",
+      "q3Body": "Étapes de validation (human-in-the-loop) + journal d'audit. L'IA assiste, les humains décident.",
       "q4Title": "Pouvez-vous intégrer nos outils ?",
-      "q4Body": "Oui. Connexion de votre stack via intégrations / APIs."
+      "q4Body": "Oui. Connexion de votre stack via intégrations / APIs.",
+      "q5Title": "Combien de temps pour un premier workflow ?",
+      "q5Body": "En général 10–30 jours selon le périmètre et les intégrations. On démarre par un flux pilote, puis on itère.",
+      "q6Title": "Quel budget prévoir ?",
+      "q6Body": "Setup + abonnement mensuel. Les éventuels coûts variables (LLM, volumes, options) sont toujours explicités à l'avance : pas de surprise."
     },
     "finalCta": {
       "title": "Votre premier agent certifié en 30 jours",

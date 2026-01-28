@@ -56,23 +56,24 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark = premium */
-    --canvas: #0b1220;
-    --section: #0b1428;
-    --surface: #0f1a34;
-    --surface-2: #121f3f;
+    /* Dark = premium navy cabinet */
+    --canvas: #050a14;
+    --section: #071227;
+    --surface: #0a1731;
+    --surface-2: #0e2142;
 
-    --fg: #eaf0ff;
-    --muted: #b7c4dc;
-    --text-subtle: #8ea0bf;
+    --fg: #eaf1ff;
+    --muted: #c5d0e6; /* raised for better readability */
+    --text-subtle: #94a8c8;
 
-    --border: rgba(255, 255, 255, 0.16);
-    --border-soft: rgba(255, 255, 255, 0.12);
+    --border: rgba(255, 255, 255, 0.14);
+    --border-soft: rgba(255, 255, 255, 0.11); /* raised for visible card edges */
 
-    --shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
-    --shadow-soft: 0 12px 34px rgba(0, 0, 0, 0.35);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22);
-    --shadow-md: 0 18px 46px rgba(0, 0, 0, 0.42);
+    /* Shadows with subtle highlight + deep shadow */
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 22px 70px rgba(0, 0, 0, 0.55);
+    --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.03), 0 14px 40px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.05), 0 14px 34px rgba(0, 0, 0, 0.50);
+    --shadow-md: 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 60px rgba(0, 0, 0, 0.62);
   }
 }
 
@@ -174,6 +175,10 @@ img {
 .hero {
   padding-top: calc(var(--section-y) * 0.85);
   padding-bottom: calc(var(--section-y) * 0.85);
+}
+
+.section--tight {
+  padding: calc(var(--section-y) * 0.55) 0;
 }
 
 .muted {
@@ -295,6 +300,26 @@ img {
   }
 }
 
+/* Use cases grid: 3 cols desktop, 2 tablet, 1 mobile */
+.usecases-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .usecases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .usecases-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
 .card {
   border: 1px solid var(--border-soft);
   border-radius: var(--radius);
@@ -332,10 +357,10 @@ img {
 
 @media (prefers-color-scheme: dark) {
   .card--featured {
-    border-color: color-mix(in oklab, var(--accent) 20%, var(--border) 80%);
+    border-color: color-mix(in oklab, var(--accent) 25%, var(--border) 75%);
     background: linear-gradient(
       135deg,
-      color-mix(in oklab, var(--accent) 10%, var(--surface) 90%),
+      color-mix(in oklab, var(--accent) 12%, var(--surface) 88%),
       var(--surface)
     );
     box-shadow: var(--shadow-md);
@@ -368,14 +393,48 @@ img {
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
   background: var(--surface-2);
-  border: 1px solid var(--border-soft);
-  color: var(--text-subtle);
+  border: 1px solid var(--border);
+  color: var(--muted);
   font-size: 13px;
+  font-weight: 500;
   line-height: 1.2;
   white-space: nowrap;
+  transition: background-color 140ms ease, border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+/* Fallback hover (no color-mix) */
+.chip:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Fallback focus-visible (always visible) */
+.chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Premium hover/focus with color-mix when supported */
+@supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+  .chip:hover {
+    background: color-mix(in oklab, var(--surface-2) 85%, var(--fg) 2%);
+    border-color: color-mix(in oklab, var(--border) 90%, var(--fg) 10%);
+  }
+
+  .chip:focus-visible {
+    outline-color: color-mix(in oklab, var(--accent) 45%, #ffffff 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none !important;
+  }
 }
 
 /* ===== Process layout ===== */
@@ -448,17 +507,6 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-@media (prefers-color-scheme: dark) {
-  .step-marker::after {
-    background: color-mix(in oklab, var(--border) 85%, transparent 15%);
-  }
-
-  .step-badge {
-    background: color-mix(in oklab, var(--surface) 92%, #ffffff 8%);
-    border: 1px solid color-mix(in oklab, var(--border) 90%, #ffffff 10%);
-  }
 }
 
 .step-title {
@@ -572,6 +620,25 @@ img {
   display: block;
 }
 
+/* ===== Panel card variant ===== */
+.card--panel {
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+}
+
+.card--panel .card-title {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.card--panel .card-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 /* ===== Legal pages ===== */
 .legal-wrap {
   padding: 40px 0;
@@ -647,11 +714,236 @@ img {
   margin-bottom: 0;
 }
 
+/* ===== Site footer ===== */
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+.site-footer__inner {
+  padding: 18px 0;
+}
+
+.site-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+/* ===== FAQ grid (comfortable columns) ===== */
+.faq-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .faq-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Dark mode premium polish ===== */
 @media (prefers-color-scheme: dark) {
+  /* Section alternance visible */
+  .section--alt,
+  .section-alt {
+    background: var(--section);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  /* Cards/panels lift - fallback */
+  .card,
+  .panel,
+  .product-strip,
+  .card--panel {
+    background: var(--surface);
+    border-color: var(--border-soft);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Cards/panels lift - premium with color-mix */
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .card,
+    .panel,
+    .product-strip,
+    .card--panel {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface) 94%, #ffffff 6%) 0%,
+        var(--surface) 100%
+      );
+    }
+  }
+
+  .card:hover,
+  .panel:hover {
+    border-color: var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Chips premium dark */
+  .chip {
+    background: var(--surface-2);
+    border-color: var(--border);
+    color: var(--muted);
+  }
+
+  .chip:hover {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .chip {
+      background: color-mix(in oklab, var(--surface-2) 90%, #ffffff 3%);
+    }
+
+    .chip:hover {
+      background: color-mix(in oklab, var(--surface) 85%, #ffffff 5%);
+      border-color: color-mix(in oklab, var(--border) 80%, #ffffff 10%);
+    }
+  }
+
+  /* Timeline step badge */
+  .step-badge {
+    background: var(--surface-2);
+    border-color: var(--border);
+    color: var(--fg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .step-badge {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface-2) 92%, #ffffff 8%) 0%,
+        var(--surface-2) 100%
+      );
+      border-color: color-mix(in oklab, var(--border) 85%, #ffffff 10%);
+    }
+  }
+
+  /* Timeline vertical line */
+  .step-marker::after {
+    background: var(--border-soft);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .step-marker::after {
+      background: color-mix(in oklab, var(--border) 70%, transparent 30%);
+    }
+  }
+
+  /* Audit panel log */
+  .log {
+    background: var(--surface-2);
+    border-color: var(--border-soft);
+  }
+
+  .log-line {
+    border-color: var(--border-soft);
+  }
+
+  /* Status pill */
+  .status-pill {
+    background: var(--surface-2);
+    border-color: var(--border);
+    color: var(--fg);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .status-pill {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface-2) 90%, #ffffff 5%) 0%,
+        var(--surface-2) 100%
+      );
+    }
+  }
+
+  /* Wireframe */
+  .wireframe {
+    background: var(--surface);
+    border-color: var(--border-soft);
+  }
+
+  /* Badge hero */
+  .badge {
+    background: var(--surface);
+    border-color: var(--border-soft);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .badge {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface) 94%, #ffffff 6%) 0%,
+        var(--surface) 100%
+      );
+    }
+  }
+
+  /* Button secondary - enhanced visibility */
+  .btn-secondary {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--fg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .btn-secondary {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface) 92%, #ffffff 8%) 0%,
+        var(--surface) 100%
+      );
+      border-color: color-mix(in oklab, var(--border) 85%, #ffffff 12%);
+    }
+  }
+
+  .btn-secondary:hover {
+    background: var(--surface-2);
+    border-color: var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .btn-secondary:hover {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface-2) 88%, #ffffff 10%) 0%,
+        var(--surface-2) 100%
+      );
+      border-color: color-mix(in oklab, var(--border) 75%, #ffffff 18%);
+    }
+  }
+
+  /* Legal surface */
   .legal-surface {
-    background: color-mix(in oklab, var(--canvas) 82%, #ffffff 18%);
-    border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: var(--shadow-soft);
+    background: var(--surface);
+    border-color: var(--border-soft);
+    box-shadow: var(--shadow-md);
+  }
+
+  @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
+    .legal-surface {
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--surface) 94%, #ffffff 6%) 0%,
+        var(--surface) 100%
+      );
+    }
   }
 }
 

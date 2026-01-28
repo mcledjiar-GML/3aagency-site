@@ -1,17 +1,18 @@
-import Container from "./Container";
+import {useTranslations} from 'next-intl';
+import Container from './Container';
 
 export default function Footer() {
+  const t = useTranslations('Footer');
+
   return (
-    <footer style={{ borderTop: "1px solid var(--border)" }}>
+    <footer className="site-footer">
       <Container>
-        <div style={{ padding: "18px 0" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "space-between" }}>
+        <div className="site-footer__inner">
+          <div className="site-footer__row">
             <small className="muted">
               © {new Date().getFullYear()} 3A Agency — Automation • AI • Agents
             </small>
-            <small className="muted">
-              Germany (DACH) • EU-first • Audit-ready
-            </small>
+            <small className="muted">{t('tagline')}</small>
           </div>
         </div>
       </Container>
