@@ -28,19 +28,20 @@ body {
   /* Spacing */
   --section-y: clamp(56px, 7vw, 96px);
 
-  /* Colors (clair premium) */
-  --canvas: #f6f7fb; /* fond global cassé (pas blanc pur) */
-  --section: #eef2f8; /* alternance section (subtil, cabinet) */
+  /* Colors (LIGHT premium) */
+  --canvas: #f6f7fb; /* fond global cassé */
+  --section: #eef2f8; /* alternance section */
   --surface: #ffffff; /* panels */
-  --surface-2: #f5f7ff; /* hover / secondary panels (différent du canvas) */
+  --surface-2: #f5f7ff; /* hover / secondary panels */
 
   --fg: #0b1220;
   --muted: #4a5a72; /* cabinet, lisible */
+  --text-subtle: #6b7a92; /* ✅ metadata / petits textes */
 
   --border: rgba(15, 23, 42, 0.16);
   --border-soft: rgba(15, 23, 42, 0.1);
 
-  /* Brand accent (orange CTA conservé) */
+  /* Brand accent */
   --accent: #ff4d1a;
   --accent-2: #ff7a45;
 
@@ -55,14 +56,15 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark = variante premium (même layout, surfaces/ombres ajustées) */
+    /* Dark = premium */
     --canvas: #0b1220;
     --section: #0b1428;
     --surface: #0f1a34;
     --surface-2: #121f3f;
 
-    --fg: #eef2ff;
-    --muted: #a9b7d0;
+    --fg: #eaf0ff;          /* ✅ un poil plus clair */
+    --muted: #b7c4dc;       /* ✅ lisible (AA) */
+    --text-subtle: #8ea0bf; /* ✅ petits textes */
 
     --border: rgba(255, 255, 255, 0.16);
     --border-soft: rgba(255, 255, 255, 0.12);
@@ -149,7 +151,7 @@ img {
   opacity: 0.55;
 }
 
-/* ✅ Rend la transition beaucoup plus subtile UNIQUEMENT pour Security et Process */
+/* ✅ Transition plus subtile pour Security et Process */
 #security.section--alt::before,
 #process.section--alt::before {
   opacity: 0.28;
@@ -166,7 +168,7 @@ img {
   );
 }
 
-/* ✅ Security trop “flagrant” → alt plus léger uniquement pour cette section */
+/* ✅ Security alt plus léger */
 #security.section--alt,
 #security.section-alt {
   background: color-mix(in oklab, var(--canvas) 78%, var(--section) 22%);
@@ -181,7 +183,7 @@ img {
   color: var(--muted);
 }
 
-/* Alternance sections (alias compatibles) */
+/* Alternance sections */
 .section-alt {
   background: var(--section);
 }
@@ -189,7 +191,7 @@ img {
   background: var(--section);
 }
 
-/* ===== Components (simple design system) ===== */
+/* ===== Components ===== */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -313,11 +315,7 @@ img {
 
 .card-text {
   margin: 0;
-  color: var(--muted);
-}
-
-.card .card-text {
-  color: color-mix(in oklab, var(--fg) 76%, var(--muted) 24%);
+  color: var(--muted); /* ✅ couleur fixe, lisible */
 }
 
 /* ===== Product strip (chips) ===== */
@@ -350,13 +348,13 @@ img {
   border-radius: 999px;
   background: var(--surface-2);
   border: 1px solid var(--border-soft);
-  color: var(--muted);
+  color: var(--text-subtle);
   font-size: 13px;
   line-height: 1.2;
   white-space: nowrap;
 }
 
-/* ===== Process layout (2 colonnes : timeline + panel UI) ===== */
+/* ===== Process layout ===== */
 .process-header {
   margin-bottom: 18px;
 }
@@ -483,7 +481,7 @@ img {
 
 .panel-sub {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--text-subtle);
 }
 
 .status-pill {
@@ -528,7 +526,7 @@ img {
 }
 
 .log-time {
-  color: var(--muted);
+  color: var(--text-subtle);
 }
 
 .log-action {
@@ -541,7 +539,7 @@ img {
   border-radius: 12px;
   background: var(--surface);
   padding: 10px;
-  color: var(--muted);
+  color: var(--text-subtle);
 }
 
 .wireframe svg {
@@ -550,7 +548,7 @@ img {
   display: block;
 }
 
-/* ===== Legal pages: premium reading layout ===== */
+/* ===== Legal pages ===== */
 .legal-wrap {
   padding: 40px 0;
 }
@@ -598,7 +596,7 @@ img {
 .legal-meta {
   margin: 16px 0 0;
   font-size: 13px;
-  color: color-mix(in oklab, var(--fg) 60%, var(--muted) 40%);
+  color: var(--text-subtle);
 }
 
 .legal-sections {
@@ -617,7 +615,8 @@ img {
 .legal-section p {
   margin: 0 0 10px;
   line-height: 1.75;
-  color: color-mix(in oklab, var(--fg) 85%, var(--muted) 15%);
+  color: var(--fg);
+  opacity: 0.92;
 }
 
 .legal-section p:last-child {
