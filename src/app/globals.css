@@ -36,7 +36,7 @@ body {
 
   --fg: #0b1220;
   --muted: #4a5a72; /* cabinet, lisible */
-  --text-subtle: #6b7a92; /* ✅ metadata / petits textes */
+  --text-subtle: #6b7a92; /* metadata / petits textes */
 
   --border: rgba(15, 23, 42, 0.16);
   --border-soft: rgba(15, 23, 42, 0.1);
@@ -62,9 +62,9 @@ body {
     --surface: #0f1a34;
     --surface-2: #121f3f;
 
-    --fg: #eaf0ff;          /* ✅ un poil plus clair */
-    --muted: #b7c4dc;       /* ✅ lisible (AA) */
-    --text-subtle: #8ea0bf; /* ✅ petits textes */
+    --fg: #eaf0ff;
+    --muted: #b7c4dc;
+    --text-subtle: #8ea0bf;
 
     --border: rgba(255, 255, 255, 0.16);
     --border-soft: rgba(255, 255, 255, 0.12);
@@ -112,7 +112,7 @@ img {
   position: relative;
 }
 
-/* ✅ Séparateur premium (ligne + micro fade) */
+/* Séparateur premium */
 .section:not(.hero)::before {
   content: "";
   position: absolute;
@@ -140,7 +140,6 @@ img {
   opacity: 0.75;
 }
 
-/* ✅ Sur les sections alternées : fade plus léger */
 .section--alt::after,
 .section-alt::after {
   background: linear-gradient(
@@ -151,7 +150,6 @@ img {
   opacity: 0.55;
 }
 
-/* ✅ Transition plus subtile pour Security et Process */
 #security.section--alt::before,
 #process.section--alt::before {
   opacity: 0.28;
@@ -168,7 +166,6 @@ img {
   );
 }
 
-/* ✅ Security alt plus léger */
 #security.section--alt,
 #security.section-alt {
   background: color-mix(in oklab, var(--canvas) 78%, var(--section) 22%);
@@ -183,7 +180,6 @@ img {
   color: var(--muted);
 }
 
-/* Alternance sections */
 .section-alt {
   background: var(--section);
 }
@@ -315,7 +311,35 @@ img {
 
 .card-text {
   margin: 0;
-  color: var(--muted); /* ✅ couleur fixe, lisible */
+  color: var(--muted);
+}
+
+/* ===== Featured solutions ===== */
+.featured-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.card--featured {
+  border-color: color-mix(in oklab, var(--accent) 22%, var(--border-soft) 78%);
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 10%, var(--surface) 90%),
+    var(--surface)
+  );
+  box-shadow: var(--shadow-md);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card--featured {
+    border-color: color-mix(in oklab, var(--accent) 20%, var(--border) 80%);
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--accent) 10%, var(--surface) 90%),
+      var(--surface)
+    );
+    box-shadow: var(--shadow-md);
+  }
 }
 
 /* ===== Product strip (chips) ===== */

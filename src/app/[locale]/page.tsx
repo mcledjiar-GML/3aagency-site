@@ -134,7 +134,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SOLUTIONS */}
+      {/* SOLUTIONS (P1 Featured) */}
       <Section id="solutions">
         <Container>
           <h2 className="h2">{t('solutions.title')}</h2>
@@ -142,14 +142,25 @@ export default async function Page({
 
           <div style={{height: 16}} />
 
-          <div className="grid-3">
+          {/* Featured: s2 */}
+          <div className="card card--featured">
+            <p className="card-title">{t('solutions.s2Title')}</p>
+            <p className="card-text">{t('solutions.s2Body')}</p>
+          </div>
+
+          <div style={{height: 14}} />
+
+          {/* Secondary: s1 + s3 */}
+          <div
+            style={{
+              display: 'grid',
+              gap: 16,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
+            }}
+          >
             <div className="card">
               <p className="card-title">{t('solutions.s1Title')}</p>
               <p className="card-text">{t('solutions.s1Body')}</p>
-            </div>
-            <div className="card">
-              <p className="card-title">{t('solutions.s2Title')}</p>
-              <p className="card-text">{t('solutions.s2Body')}</p>
             </div>
             <div className="card">
               <p className="card-title">{t('solutions.s3Title')}</p>
@@ -209,7 +220,7 @@ export default async function Page({
         </Container>
       </Section>
 
-      {/* SECURITY (rollback = simple card) */}
+      {/* SECURITY */}
       <Section id="security" className="section--alt">
         <Container>
           <h2 className="h2">{t('security.title')}</h2>
