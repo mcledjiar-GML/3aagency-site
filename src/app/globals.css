@@ -752,12 +752,26 @@ img {
 
 /* ===== Dark mode premium polish ===== */
 @media (prefers-color-scheme: dark) {
+  /* Section separators - softer in dark */
+  .section:not(.hero)::before {
+    opacity: 0.35;
+  }
+
+  .section:not(.hero)::after {
+    opacity: 0.45;
+  }
+
   /* Section alternance visible */
   .section--alt,
   .section-alt {
     background: var(--section);
     border-top: 1px solid var(--border-soft);
     border-bottom: 1px solid var(--border-soft);
+  }
+
+  .section--alt::before,
+  .section-alt::before {
+    opacity: 0.25;
   }
 
   /* Cards/panels lift - fallback */
@@ -790,27 +804,37 @@ img {
     box-shadow: var(--shadow-md);
   }
 
-  /* Chips premium dark */
+  /* Chips - clickable UI look */
   .chip {
     background: var(--surface-2);
-    border-color: var(--border);
+    border-color: rgba(255, 255, 255, 0.18);
     color: var(--muted);
   }
 
   .chip:hover {
     background: var(--surface);
-    border-color: var(--border);
+    border-color: rgba(255, 255, 255, 0.24);
     box-shadow: var(--shadow-sm);
+  }
+
+  .chip:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   @supports (color: color-mix(in oklab, red 50%, blue 50%)) {
     .chip {
-      background: color-mix(in oklab, var(--surface-2) 90%, #ffffff 3%);
+      background: color-mix(in oklab, var(--surface-2) 88%, #ffffff 6%);
+      border-color: color-mix(in oklab, var(--border) 70%, #ffffff 18%);
     }
 
     .chip:hover {
-      background: color-mix(in oklab, var(--surface) 85%, #ffffff 5%);
-      border-color: color-mix(in oklab, var(--border) 80%, #ffffff 10%);
+      background: color-mix(in oklab, var(--surface) 82%, #ffffff 10%);
+      border-color: color-mix(in oklab, var(--border) 60%, #ffffff 28%);
+    }
+
+    .chip:focus-visible {
+      outline-color: color-mix(in oklab, var(--accent) 70%, #ffffff 30%);
     }
   }
 
@@ -893,10 +917,10 @@ img {
     }
   }
 
-  /* Button secondary - enhanced visibility */
+  /* Button secondary - clickable, not disabled look */
   .btn-secondary {
-    background: var(--surface);
-    border-color: var(--border);
+    background: var(--surface-2);
+    border-color: rgba(255, 255, 255, 0.20);
     color: var(--fg);
     box-shadow: var(--shadow-sm);
   }
@@ -905,16 +929,16 @@ img {
     .btn-secondary {
       background: linear-gradient(
         180deg,
-        color-mix(in oklab, var(--surface) 92%, #ffffff 8%) 0%,
-        var(--surface) 100%
+        color-mix(in oklab, var(--surface-2) 88%, #ffffff 10%) 0%,
+        var(--surface-2) 100%
       );
-      border-color: color-mix(in oklab, var(--border) 85%, #ffffff 12%);
+      border-color: color-mix(in oklab, var(--border) 65%, #ffffff 22%);
     }
   }
 
   .btn-secondary:hover {
-    background: var(--surface-2);
-    border-color: var(--border);
+    background: var(--surface);
+    border-color: rgba(255, 255, 255, 0.28);
     box-shadow: var(--shadow-md);
   }
 
@@ -922,10 +946,10 @@ img {
     .btn-secondary:hover {
       background: linear-gradient(
         180deg,
-        color-mix(in oklab, var(--surface-2) 88%, #ffffff 10%) 0%,
-        var(--surface-2) 100%
+        color-mix(in oklab, var(--surface) 82%, #ffffff 14%) 0%,
+        var(--surface) 100%
       );
-      border-color: color-mix(in oklab, var(--border) 75%, #ffffff 18%);
+      border-color: color-mix(in oklab, var(--border) 55%, #ffffff 32%);
     }
   }
 
